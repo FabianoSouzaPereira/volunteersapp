@@ -1,0 +1,18 @@
+{
+  "addEvent":"Add new entre",
+  "leaders":"{count, plural, =0{no leaders} =1{1 leader} other{{count} leaders}}",
+  "voluntiers":"{count, plural, =0{voluntier} =1{voluntiers} other{{count} voluntiers}}",
+  "@voluntiers":{
+    "description": "Plural of voluntiers"
+  },
+  "teams":"{count, plural, =0{team} =1{Teams} other{{count} teams}}",
+  "event":"{count, plural, =0{event} =1{events} other{{count} events}}",
+  "users": "{count, plural, =0{users} =1{user} other{{count} users}}",
+  "favorities":"{count, plural, =0{favorities} =1{favority} other{{count} favorities}}",
+  "settings":"{count, plural, =0{settings} =1{setting} other{{count} settings}}",
+  "notifications":"{count, plural, =0{notifications} =1{notification} other{{count} notifications}}",
+  "emails":"{count, plural, =0{emails} =1{email} other{{count} emails}}",
+  "cameras":"{count, plural, =0{cameras} =1{camera} other{{count} cameras}}",
+  "videos":"{count, plural, =0{videos} =1{video} other{{count} videos}}",
+  "younitytasks":"{count, plural, =0{younity tasks} =1{younity task} other{{count} younity tasks}}"
+}

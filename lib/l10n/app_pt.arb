@@ -1,0 +1,18 @@
+{
+  "addEvent":"Adiciona Nova Entrada",
+  "leaders":"{count, plural, =0{no liders} =1{1 lider} other{{count} liders}}",
+  "voluntiers":"{count, plural, =0{voluntários} =1{voluntário} other{{count} voluntários}}",
+  "@voluntiers":{
+    "description": "Plural of voluntiers"
+  },
+  "teams":"{count, plural, =0{time} =1{Times} other{{count} times}}",
+  "event":"{count, plural, =0{evento} =1{eventos} other{{count} eventos}}",
+  "users": "{count, plural, =0{usuários} =1{usuário} other{{count} usuários}}",
+  "favorities":"{count, plural, =0{favoritos} =1{favorito} other{{count} favoritos}}",
+  "settings":"{count, plural, =0{configurações} =1{configuração} other{{count} configurações}}",
+  "notifications":"{count, plural, =0{notificações} =1{notificação} other{{count} notificações}}",
+  "emails":"{count, plural, =0{emails} =1{email} other{{count} emails}}",
+  "cameras":"{count, plural, =0{câmeras} =1{câmera} other{{count} câmeras}}",
+  "videos":"{count, plural, =0{videos} =1{video} other{{count} videos}}",
+  "younitytasks":"{count, plural, =0{younity tarefas} =1{younity tarefa} other{{count} younity tarefas}}"
+}
