@@ -10,8 +10,11 @@ import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
 import 'package:volunteersapp/presentation/home/home_cubit.dart';
 import 'package:volunteersapp/presentation/home/widgets/card_cubit.dart';
 import 'package:volunteersapp/presentation/settings/settings_cubit.dart';
+import 'package:kafkabr/kafka.dart';
 
 void main() async {
+  var host = new ContactPoint('127.0.0.1', 9092);
+  var session = new KafkaSession([host]);
   WidgetsFlutterBinding();
   await SharedPreferences.getInstance();
   ApiConfig apiConfig = await ApiConfig.load();

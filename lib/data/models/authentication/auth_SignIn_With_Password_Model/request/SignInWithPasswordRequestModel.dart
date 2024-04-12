@@ -2,7 +2,7 @@
 
 import 'package:equatable/equatable.dart';
 
-class SigInWithPasswordRequestModel extends Equatable {
+class SignInWithPasswordRequestModel extends Equatable {
   final String email;
   final String password;
   final String pendingIdToken;
@@ -16,7 +16,7 @@ class SigInWithPasswordRequestModel extends Equatable {
   final ClientType clientType;
   final RecaptchaVersion recaptchaVersion;
 
-  const SigInWithPasswordRequestModel({
+  const SignInWithPasswordRequestModel({
     required this.email,
     required this.password,
     required this.pendingIdToken,
@@ -47,7 +47,7 @@ class SigInWithPasswordRequestModel extends Equatable {
         recaptchaVersion,
       ];
 
-  SigInWithPasswordRequestModel copyWith({
+  SignInWithPasswordRequestModel copyWith({
     String? email,
     String? password,
     String? pendingIdToken,
@@ -61,7 +61,7 @@ class SigInWithPasswordRequestModel extends Equatable {
     ClientType? clientType,
     RecaptchaVersion? recaptchaVersion,
   }) {
-    return SigInWithPasswordRequestModel(
+    return SignInWithPasswordRequestModel(
       email: email ?? this.email,
       password: password ?? this.password,
       pendingIdToken: pendingIdToken ?? this.pendingIdToken,
@@ -79,18 +79,18 @@ class SigInWithPasswordRequestModel extends Equatable {
 
   @override
   String toString() {
-    return 'SigInWithPasswordRequestModel{email: $email, password: $password, pendingIdToken: $pendingIdToken, captchaChallenge: $captchaChallenge, captchaResponse: $captchaResponse, instanceId: $instanceId, delegatedProjectNumber: $delegatedProjectNumber, idToken: $idToken, returnSecureToken: $returnSecureToken, tenantId: $tenantId, clientType: $clientType, recaptchaVersion: $recaptchaVersion}';
+    return 'SignInWithPasswordRequestModel{email: $email, password: $password, pendingIdToken: $pendingIdToken, captchaChallenge: $captchaChallenge, captchaResponse: $captchaResponse, instanceId: $instanceId, delegatedProjectNumber: $delegatedProjectNumber, idToken: $idToken, returnSecureToken: $returnSecureToken, tenantId: $tenantId, clientType: $clientType, recaptchaVersion: $recaptchaVersion}';
   }
 }
 
-  enum ClientType { 
-    CLIENT_TYPE_UNSPECIFIED,
-    CLIENT_TYPE_WEB,
-    CLIENT_TYPE_ANDROID,
-    CLIENT_TYPE_IOS,
-  }
+enum ClientType {
+  CLIENT_TYPE_UNSPECIFIED,
+  CLIENT_TYPE_WEB,
+  CLIENT_TYPE_ANDROID,
+  CLIENT_TYPE_IOS,
+}
 
-  enum RecaptchaVersion { 
-    RECAPTCHA_VERSION_UNSPECIFIED,
-    RECAPTCHA_ENTERPRISE,
-  } 
+enum RecaptchaVersion {
+  RECAPTCHA_VERSION_UNSPECIFIED,
+  RECAPTCHA_ENTERPRISE,
+}
