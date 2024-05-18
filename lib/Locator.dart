@@ -46,7 +46,7 @@ Future<void> setupLocator() async {
   // Services
 
   // cubits
-  getIt.registerSingleton<AuthCubit>(AuthCubit());
+  getIt.registerSingleton<AuthCubit>(AuthCubit(AuthUseCase(getIt.get())));
   getIt.registerSingleton<HomeCubit>(HomeCubit());
   getIt.registerSingleton<CardCubit>(CardCubit());
   getIt.registerSingleton<SettingsCubit>(SettingsCubit());

@@ -11,15 +11,15 @@ class AuthPage extends StatelessWidget {
     super.key,
     required String title,
   });
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final bool returnSecureToken = true;
+
   final locator = GetIt.instance;
-  //final _cubit = GetIt.instance<AuthCubit>();
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    bool returnSecureToken = true;
-
     return Scaffold(
       backgroundColor: Colors.black,
       body: BlocConsumer<AuthCubit, AuthPageState>(

@@ -8,7 +8,7 @@ A estrutura apresentada na imagem é uma representação de arquitetura de softw
 
 ![Project Arquiteture](arquiteture.png)
 
-Para implementar uma estrutura em Flutter seguindo o diagrama e utilizando Cubit para gerenciamento de estado e GetIt para injeção de dependência, você pode estruturar seu projeto da seguinte maneira:
+Para implementar uma estrutura em Flutter seguindo o diagrama e utilizando Cubit para gerenciamento de estado e GetIt para injeção de dependência, a estrutura do projeto é da seguinte maneira:
 
 ## Presentation
 
