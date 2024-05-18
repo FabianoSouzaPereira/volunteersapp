@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:volunteersapp/Locator.dart';
@@ -13,12 +14,13 @@ import 'package:volunteersapp/presentation/settings/settings_cubit.dart';
 import 'package:kafkabr/kafka.dart';
 
 void main() async {
-  var host = new ContactPoint('127.0.0.1', 9092);
-  var session = new KafkaSession([host]);
+  var host = ContactPoint('127.0.0.1', 9092);
+  var session = KafkaSession([host]);
   WidgetsFlutterBinding();
+  await setupLocator();
   await SharedPreferences.getInstance();
   ApiConfig apiConfig = await ApiConfig.load();
-  await setupLocator();
+
   runApp(MyApp(apiConfig: apiConfig));
 }
 
@@ -31,16 +33,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<AuthCubit>(
-          create: (_) => getIt<AuthCubit>(),
+          create: (_) => getIt.get<AuthCubit>(),
         ),
         Provider<HomeCubit>(
-          create: (_) => getIt<HomeCubit>(),
+          create: (_) => getIt.get<HomeCubit>(),
         ),
         Provider<CardCubit>(
-          create: (_) => getIt<CardCubit>(),
+          create: (_) => getIt.get<CardCubit>(),
         ),
         Provider<SettingsCubit>(
-          create: (_) => getIt<SettingsCubit>(),
+          create: (_) => getIt.get<SettingsCubit>(),
         ),
       ],
       child: MaterialApp.router(

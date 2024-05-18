@@ -3,20 +3,20 @@ import 'package:volunteersapp/domain/usecases/auth_use_case.dart';
 import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
 
 class AuthCubit extends Cubit<AuthPageState> {
-  final AuthUseCase _loginUseCase;
+  // final AuthUseCase loginUseCase;
 
-  AuthCubit(this._loginUseCase) : super(AuthPageStateInitial());
+  AuthCubit() : super(AuthPageStateInitial());
 
   Future<void> signInWithEmailAndPassword(String email, String password, bool returnSecureToken) async {
     emit(AuthPageLoading());
     try {
-      final success = await _loginUseCase.execute(email, password, returnSecureToken);
+      // final success = await loginUseCase.execute(email, password, returnSecureToken);
 
-      if (success) {
-        emit(AuthPageLoaded(listAuthLogin: const []));
-      } else {
-        emit(AuthPageError('Failed to login'));
-      }
+      //  if (success) {
+      //     emit(AuthPageLoaded(listAuthLogin: const []));
+      //   } else {
+      //      emit(AuthPageError('Failed to login'));
+      //    }
     } catch (e) {
       emit(AuthPageError(e.toString()));
     }

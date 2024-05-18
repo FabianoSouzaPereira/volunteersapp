@@ -5,7 +5,7 @@ import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth_loc
 
 class DioHttpClient extends AbstractHttpClient {
   final Dio _dio;
-  final AuthLocalRepository _authLocalRepository;
+  final AbstractAuthLocalRepository _authLocalRepository;
 
   DioHttpClient({
     required Dio dio,
@@ -42,8 +42,7 @@ class DioHttpClient extends AbstractHttpClient {
   }
 
   @override
-  Future<HttpResponse<T>> post<T>(String path,
-      {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
+  Future<HttpResponse<T>> post<T>(String path, {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
     try {
       Response<T> response = await _dio.post<T>(path, data: data);
 
@@ -58,8 +57,7 @@ class DioHttpClient extends AbstractHttpClient {
   }
 
   @override
-  Future<HttpResponse<T>> put<T>(String path,
-      {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
+  Future<HttpResponse<T>> put<T>(String path, {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
     try {
       Response<T> response = await _dio.put<T>(path, data: data);
 
@@ -89,8 +87,7 @@ class DioHttpClient extends AbstractHttpClient {
   }
 
   @override
-  Future<HttpResponse<T>> delete<T>(String path,
-      {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
+  Future<HttpResponse<T>> delete<T>(String path, {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
     try {
       Response<T> response = await _dio.delete<T>(path);
 

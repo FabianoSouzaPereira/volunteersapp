@@ -7,20 +7,24 @@ import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
 import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
 
 class AuthPage extends StatelessWidget {
-  AuthPage({super.key});
-  final _cubit = GetIt.instance.get<AuthCubit>();
+  AuthPage({
+    super.key,
+    required String title,
+  });
+  final locator = GetIt.instance;
+  //final _cubit = GetIt.instance<AuthCubit>();
 
   @override
   Widget build(BuildContext context) {
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final bool returnSecureToken = true;
+    bool returnSecureToken = true;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       body: BlocConsumer<AuthCubit, AuthPageState>(
         listener: (context, state) {
           if (state is AuthPageError) {
-            // Mostrar mensagem de erro de login
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(state.errorMessage),
             ));
@@ -37,10 +41,7 @@ class AuthPage extends StatelessWidget {
                 children: [
                   const Text(
                     'Login',
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 20.0),
                   TextField(

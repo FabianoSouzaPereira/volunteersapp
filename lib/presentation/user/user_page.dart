@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:volunteersapp/presentation/widgets/reorderableListWidget.dart';
+import 'package:volunteersapp/core/router/paths.dart' as paths;
 
 class UserPage extends StatelessWidget {
   const UserPage({
@@ -33,11 +34,28 @@ class UserPage extends StatelessWidget {
           color: Colors.transparent,
           child: Container(
               color: Colors.transparent,
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text("USUÁRIO"),
+                  Expanded(
+                    child: ReorderableListWidget(
+                      items: [
+                        GestureDetector(
+                          child: const Text(
+                            "voltar para home",
+                            style: TextStyle(
+                              color: Colors.blue, // Cor do texto
+                              decoration: TextDecoration.underline, // Adiciona sublinhado para indicar clique
+                            ),
+                          ),
+                          onTap: () {
+                            GoRouter.of(context).go(paths.HomePagePath);
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               )),
         ),

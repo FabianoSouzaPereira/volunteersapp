@@ -8,3 +8,4 @@ const SettingsPageRoute = 'settings';
 const LeadersPageRoute = 'LeadersPageRoute';
 const EventsPageRoute = 'EventsPageRoute';
 const TeamsPageRoute = 'TeamsPageRoute';
+const LoginPageRoute = "login";

@@ -8,3 +8,4 @@ const SettingsPagePath = '/settings';
 const LeadersPagePath = '/leaderspageroute';
 const EventsPagePath = '/eventspageroute';
 const TeamsPagePath = '/teamspageroute';
+const LoginPagePath = '/login';

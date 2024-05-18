@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:volunteersapp/core/router/router_observer.dart';
 import 'package:volunteersapp/core/router/paths.dart' as paths;
 import 'package:volunteersapp/core/router/routes.dart' as routes;
+import 'package:volunteersapp/presentation/auth/auth_page.dart';
 import 'package:volunteersapp/presentation/events/Events_page.dart';
 import 'package:volunteersapp/presentation/home/home_page.dart';
 import 'package:volunteersapp/presentation/notFound/page_notfound.dart';
@@ -12,13 +13,14 @@ import 'package:volunteersapp/presentation/user/user_page.dart';
 final navigatorKey = GlobalKey<NavigatorState>();
 
 GoRouter router = GoRouter(
-  initialLocation: paths.HomePagePath,
+  initialLocation: paths.LoginPagePath,
   navigatorKey: navigatorKey,
   observers: [GoRouterObserverGlobal()],
   redirect: (context, state) {
     final requestedPath = state.fullPath;
 
     final validRoutes = [
+      paths.LoginPagePath,
       paths.HomePagePath,
       paths.UserPagePath,
       paths.UserDescriptionsPath,
@@ -36,17 +38,22 @@ GoRouter router = GoRouter(
   },
   routes: [
     GoRoute(
-        path: paths.HomePagePath,
-        name: routes.HomePageRoute,
+        path: paths.LoginPagePath,
+        name: routes.LoginPageRoute,
         builder: (context, state) {
-          return const HomePage(
-            title: 'Home',
+          return AuthPage(
+            title: 'Login',
           );
         }),
     GoRoute(
+      path: paths.HomePagePath,
+      name: routes.HomePageRoute,
+      builder: (context, state) => const HomePage(title: 'Home'),
+    ),
+    GoRoute(
       path: paths.UserPagePath,
       name: routes.UsersPageRoute,
-      builder: (context, state) => UserPage(title: 'User'),
+      builder: (context, state) => const UserPage(title: 'User'),
     ),
     GoRoute(
       path: paths.EventsPagePath,
