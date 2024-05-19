@@ -1,11 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:volunteersapp/core/http/abstract_http_client.dart';
 import 'package:volunteersapp/core/http/dio_http_client.dart';
 import 'package:volunteersapp/data/auth/remote_repository/auth_repository_DataSourceImpl.dart';
-import 'package:volunteersapp/data/models/authentication/auth_SignIn_With_Password_Model/response/signin_with_password_Model.dart';
 import 'package:volunteersapp/core/http/constants.dart';
+import 'package:volunteersapp/data/models/authentication/auth_signIn_with_password_model/signin_with_password_Model.dart';
 import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth_repository_datasource.dart';
 
 // Mocking DioHttpClient
@@ -13,11 +14,9 @@ class MockDioHttpClient extends Mock implements DioHttpClient {
   late final Dio _dio;
 
   @override
-  Future<HttpResponse<SignInWithPasswordResponseModel>> post<SignInWithPasswordResponseModel>(String path,
-      {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
+  Future<HttpResponse<SignInWithPasswordResponseModel>> post<SignInWithPasswordResponseModel>(String path, {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters}) async {
     try {
-      Response<SignInWithPasswordResponseModel> response =
-          await _dio.post<SignInWithPasswordResponseModel>(path, data: data);
+      Response<SignInWithPasswordResponseModel> response = await _dio.post<SignInWithPasswordResponseModel>(path, data: data);
 
       return HttpResponse<SignInWithPasswordResponseModel>(
         data: response.data,
@@ -25,8 +24,11 @@ class MockDioHttpClient extends Mock implements DioHttpClient {
         statusMessage: response.statusMessage,
       );
     } catch (e, stackTrace) {
-      print("Exceção durante a execução do teste: $e");
-      print("StackTrace: $stackTrace");
+      if (kDebugMode) {
+        print("Exceção durante a execução do teste: $e");
+        print("StackTrace: $stackTrace");
+      }
+
       rethrow;
     }
   }
@@ -51,21 +53,14 @@ void main() {
 
         // Criando um objeto de resposta simulada
         final responseModel = const SignInWithPasswordResponseModel(
-            kind: '',
-            localId: '',
-            email: '',
-            displayName: '',
-            idToken: '',
-            registered: true,
-            profilePicture: '',
-            oauthAccessToken: '',
-            oauthExpireIn: 0,
-            oauthAuthorizationCode: '',
-            refreshToken: '',
-            expiresIn: '',
-            mfaPendingCredential: '',
-            mfaInfo: [],
-            signInWithPasswordResponseModelNotifications: []);
+          kind: '',
+          localId: '',
+          email: '',
+          displayName: '',
+          registered: true,
+          refreshToken: '',
+          expiresIn: '',
+        );
 
         // Especificando o comportamento do mockDioHttpClient quando chamado com os parâmetros corretos
         when(mockDioHttpClient.post<SignInWithPasswordResponseModel>(

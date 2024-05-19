@@ -35,6 +35,9 @@ class DioHttpClient extends AbstractHttpClient {
         if (token != null) {
           options.headers["Authorization"] = 'Bearer $token';
           options.headers["x-access-token"] = token;
+          options.headers["Accept-Encoding"] = "gzip, deflate, br";
+          options.headers["Content-Type"] = "application/json";
+          options.headers["Connection"] = "keep-alive";
         }
         return handler.next(options);
       },
@@ -52,7 +55,7 @@ class DioHttpClient extends AbstractHttpClient {
         statusMessage: response.statusMessage,
       );
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

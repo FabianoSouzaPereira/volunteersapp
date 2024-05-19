@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
+import 'package:volunteersapp/core/router/paths.dart';
 import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
 import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
 
@@ -28,6 +30,9 @@ class AuthPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text(state.errorMessage),
             ));
+          }
+          if (state is AuthPageLoaded) {
+            GoRouter.of(context).go(HomePagePath);
           }
         },
         builder: (context, state) {
@@ -69,6 +74,24 @@ class AuthPage extends StatelessWidget {
                     },
                     child: const Text('Login'),
                   ),
+                  TextButton(
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                      overlayColor: MaterialStateProperty.resolveWith<Color?>(
+                        (Set<MaterialState> states) {
+                          if (states.contains(MaterialState.hovered)) return Colors.blue.withOpacity(0.04);
+                          if (states.contains(MaterialState.focused) || states.contains(MaterialState.pressed)) return Colors.blue.withOpacity(0.12);
+                          return null;
+                        },
+                      ),
+                    ),
+                    onPressed: () {
+                      final email = emailController.text;
+                      final password = passwordController.text;
+                      context.read<AuthCubit>().signUp(email, password, returnSecureToken);
+                    },
+                    child: const Text('SignUp'),
+                  )
                 ],
               ),
             );

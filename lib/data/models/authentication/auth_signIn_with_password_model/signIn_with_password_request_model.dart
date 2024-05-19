@@ -1,6 +1,9 @@
-// ignore_for_file: constant_identifier_names
-
+import 'dart:convert';
 import 'package:equatable/equatable.dart';
+
+SignInWithPasswordRequestModel signUpWithEmailAndPasswordFromJson(String str) => SignInWithPasswordRequestModel.fromJson(json.decode(str));
+
+String signInWithPasswordRequestModelToJson(SignInWithPasswordRequestModel data) => json.encode(data.toJson());
 
 class SignInWithPasswordRequestModel extends Equatable {
   final String email;
@@ -30,6 +33,38 @@ class SignInWithPasswordRequestModel extends Equatable {
     required this.clientType,
     required this.recaptchaVersion,
   });
+
+  factory SignInWithPasswordRequestModel.fromJson(Map<String, dynamic> json) => SignInWithPasswordRequestModel(
+        email: json['email'],
+        password: json['password'],
+        pendingIdToken: json['pendingIdToken'],
+        captchaChallenge: json['captchaChallenge'],
+        captchaResponse: json['captchaResponse'],
+        instanceId: json['instanceId'],
+        delegatedProjectNumber: json['delegatedProjectNumber'],
+        idToken: json['idToken'],
+        returnSecureToken: json['returnSecureToken'],
+        tenantId: json['tenantId'],
+        clientType: json['clientType'],
+        recaptchaVersion: json['recaptchaVersion'],
+      );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'email': email,
+      'password': password,
+      'pendingIdToken': pendingIdToken,
+      'captchaChallenge': captchaChallenge,
+      'captchaResponse': captchaResponse,
+      'instanceId': instanceId,
+      'delegatedProjectNumber': delegatedProjectNumber,
+      'idToken': idToken,
+      'returnSecureToken': returnSecureToken,
+      'tenantId': tenantId,
+      'clientType': clientType,
+      'recaptchaVersion': recaptchaVersion
+    };
+  }
 
   @override
   List<Object?> get props => [

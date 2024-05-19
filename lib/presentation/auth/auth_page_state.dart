@@ -19,4 +19,3 @@ class AuthPageLoaded extends AuthPageState {
   @override
   List<Object> get props => [listAuthLogin];
 }
-

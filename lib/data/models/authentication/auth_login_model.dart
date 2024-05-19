@@ -1,15 +1,21 @@
 import 'dart:ffi';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:volunteersapp/domain/entities/auth_login_entity.dart';
 
+@JsonSerializable()
 class AuthLoginModel {
+  @JsonKey(name: 'email')
   final String email;
+  @JsonKey(name: 'password')
   final String password;
+  @JsonKey(name: 'returnSecureToken')
   final bool returnSecureToken;
 
-  AuthLoginModel(
-      {required this.email,
-      required this.password,
-      required this.returnSecureToken});
+  AuthLoginModel({
+    required this.email,
+    required this.password,
+    required this.returnSecureToken,
+  });
 
   static fromJson(data) {}
 }

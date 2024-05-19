@@ -7,6 +7,21 @@ class AuthCubit extends Cubit<AuthPageState> {
 
   AuthCubit(this.loginUseCase) : super(AuthPageStateInitial());
 
+  Future<void> signUp(String email, String password, bool returnSecureToken) async {
+    emit(AuthPageLoading());
+    try {
+      final success = await loginUseCase.signUp(email, password, returnSecureToken);
+
+      if (success.data != null) {
+        emit(AuthPageLoaded(listAuthLogin: const []));
+      } else {
+        emit(AuthPageError('Failed to login'));
+      }
+    } catch (e) {
+      emit(AuthPageError(e.toString()));
+    }
+  }
+
   Future<void> signInWithEmailAndPassword(String email, String password, bool returnSecureToken) async {
     emit(AuthPageLoading());
     try {
