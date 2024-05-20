@@ -16,7 +16,7 @@ class AuthRepositoryImpl implements AbstractAuthRepository {
       final response = await service.signUp(email, password, returnSecureToken);
 
       if (response != null) {
-        return ResponseData<SignUpWithEmailAndPassword>(data: response.data, success: true);
+        return response;
       } else {
         return const ResponseData<SignUpWithEmailAndPassword>(data: null, success: false);
       }
@@ -31,9 +31,9 @@ class AuthRepositoryImpl implements AbstractAuthRepository {
       final response = await service.signInWithEmailAndPassword(email, password, returnSecureToken);
 
       if (response != null) {
-        return ResponseData<SignInWithPasswordResponseModel>(data: response.data, success: true);
+        return response;
       } else {
-        return const ResponseData<SignInWithPasswordResponseModel>(data: null, success: false);
+        return const ResponseData<SignInWithPasswordResponseModel>(data: null, statusCode: null, success: false);
       }
     } catch (e) {
       rethrow;

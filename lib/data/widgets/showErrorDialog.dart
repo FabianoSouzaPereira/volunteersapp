@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ErrorDialog extends StatelessWidget {
   final String message;
@@ -15,7 +16,7 @@ class ErrorDialog extends StatelessWidget {
       actions: <Widget>[
         TextButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            GoRouter.of(context).pop();
           },
           child: const Text('OK'),
         ),

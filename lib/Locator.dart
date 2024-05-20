@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dartz/dartz.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dio/dio.dart';
@@ -34,7 +35,12 @@ Future<void> setupLocator() async {
   // notifiers
 
   // usecases
-  getIt.registerLazySingleton<AuthUseCase>(() => AuthUseCase(getIt.get()));
+  getIt.registerLazySingleton<AuthUseCase>(
+    () => AuthUseCase(
+      repository: AuthRepositoryImpl(getIt.get()),
+      localRepository: AuthLocalRepositoryImpl(getIt.get()),
+    ),
+  );
   getIt.registerLazySingleton<AbastractAuthRepositoryDataSource>(() => AuthenticationDataSourceImpl(dioHttpClient: getIt.get()));
 
   // Repositories
@@ -44,7 +50,14 @@ Future<void> setupLocator() async {
   // Services
 
   // cubits
-  getIt.registerSingleton<AuthCubit>(AuthCubit(AuthUseCase(getIt.get())));
+  getIt.registerSingleton<AuthCubit>(
+    AuthCubit(
+      AuthUseCase(
+        repository: AuthRepositoryImpl(getIt.get()),
+        localRepository: AuthLocalRepositoryImpl(getIt.get()),
+      ),
+    ),
+  );
   getIt.registerSingleton<HomeCubit>(HomeCubit());
   getIt.registerSingleton<CardCubit>(CardCubit());
   getIt.registerSingleton<SettingsCubit>(SettingsCubit());

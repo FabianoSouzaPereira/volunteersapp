@@ -3,12 +3,15 @@
 //     final signUpWithEmailAndPassword = signUpWithEmailAndPasswordFromJson(jsonString);
 
 import 'dart:convert';
-
 import 'package:json_annotation/json_annotation.dart';
 
+//to use remote
 SignUpWithEmailAndPassword signUpWithEmailAndPasswordFromJson(String str) => SignUpWithEmailAndPassword.fromJson(json.decode(str));
-
 String signUpWithEmailAndPasswordToJson(SignUpWithEmailAndPassword data) => json.encode(data.toJson());
+
+//To save local
+SignUpWithEmailAndPassword signUpWithEmailAndPasswordFromMap(String str) => SignUpWithEmailAndPassword.fromMap(json.decode(str));
+String signUpWithEmailAndPasswordToMap(SignUpWithEmailAndPassword data) => json.encode(data.toMap());
 
 @JsonSerializable()
 class SignUpWithEmailAndPassword {
@@ -68,4 +71,26 @@ class SignUpWithEmailAndPassword {
         "expiresIn": expiresIn,
         "localId": localId,
       };
+
+  Map<String, dynamic> toMap() {
+    return {
+      'kind': kind,
+      'idToken': idToken,
+      'email': email,
+      'refreshToken': refreshToken,
+      'expiresIn': expiresIn,
+      'localId': localId,
+    };
+  }
+
+  factory SignUpWithEmailAndPassword.fromMap(Map<String, dynamic> map) {
+    return SignUpWithEmailAndPassword(
+      kind: map['kind'],
+      idToken: map['idToken'],
+      email: map['email'],
+      refreshToken: map['refreshToken'],
+      expiresIn: map['expiresIn'],
+      localId: map['localId'],
+    );
+  }
 }

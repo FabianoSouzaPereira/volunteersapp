@@ -7,6 +7,7 @@ import 'package:volunteersapp/data/models/authentication/auth_signup_with_email_
 import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth_repository_datasource.dart';
 import 'package:volunteersapp/domain/repositories/response_data.dart';
 import 'package:volunteersapp/core/http/constants.dart';
+import 'package:volunteersapp/presentation/helpers/http_helper.dart';
 
 class AuthenticationDataSourceImpl implements AbastractAuthRepositoryDataSource {
   final DioHttpClient dioHttpClient;
@@ -28,10 +29,11 @@ class AuthenticationDataSourceImpl implements AbastractAuthRepositoryDataSource 
         },
       );
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         final signUpData = SignUpWithEmailAndPassword.fromJson(response.data);
         return ResponseData<SignUpWithEmailAndPassword>(
           data: signUpData,
+          statusCode: ResultStatusCode.created,
           success: true,
         );
       } else {
@@ -58,6 +60,7 @@ class AuthenticationDataSourceImpl implements AbastractAuthRepositoryDataSource 
         final signUpData = SignInWithPasswordResponseModel.fromJson(response.data);
         return ResponseData<SignInWithPasswordResponseModel>(
           data: signUpData,
+          statusCode: ResultStatusCode.ok,
           success: true,
         );
       } else {

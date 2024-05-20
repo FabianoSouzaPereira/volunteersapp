@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:volunteersapp/core/router/paths.dart';
+import 'package:volunteersapp/core/router/routes.dart';
 import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
 import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
 
@@ -32,7 +32,7 @@ class AuthPage extends StatelessWidget {
             ));
           }
           if (state is AuthPageLoaded) {
-            GoRouter.of(context).go(HomePagePath);
+            GoRouter.of(context).pushReplacementNamed(HomePageRoute);
           }
         },
         builder: (context, state) {

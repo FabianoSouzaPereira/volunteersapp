@@ -8,18 +8,20 @@ import 'package:volunteersapp/presentation/events/Events_page.dart';
 import 'package:volunteersapp/presentation/home/home_page.dart';
 import 'package:volunteersapp/presentation/notFound/page_notfound.dart';
 import 'package:volunteersapp/presentation/settings/settings_page.dart';
+import 'package:volunteersapp/presentation/splash/splash_page.dart';
 import 'package:volunteersapp/presentation/user/user_page.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
 GoRouter router = GoRouter(
-  initialLocation: paths.LoginPagePath,
+  initialLocation: paths.SplashPagePath,
   navigatorKey: navigatorKey,
   observers: [GoRouterObserverGlobal()],
   redirect: (context, state) {
     final requestedPath = state.fullPath;
 
     final validRoutes = [
+      paths.SplashPagePath,
       paths.LoginPagePath,
       paths.HomePagePath,
       paths.UserPagePath,
@@ -38,13 +40,15 @@ GoRouter router = GoRouter(
   },
   routes: [
     GoRoute(
-        path: paths.LoginPagePath,
-        name: routes.LoginPageRoute,
-        builder: (context, state) {
-          return AuthPage(
-            title: 'Login',
-          );
-        }),
+      path: paths.SplashPagePath,
+      name: routes.SplashPageRoute,
+      builder: (context, state) => const SplashPage(),
+    ),
+    GoRoute(
+      path: paths.LoginPagePath,
+      name: routes.LoginPageRoute,
+      builder: (context, state) => AuthPage(title: 'Login'),
+    ),
     GoRoute(
       path: paths.HomePagePath,
       name: routes.HomePageRoute,

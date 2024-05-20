@@ -1,10 +1,12 @@
-enum ResultStatusCode { ok, badRequest, unauthorized, notFound, timeout, internalServerError, unknow }
+enum ResultStatusCode { ok, created, badRequest, unauthorized, notFound, timeout, internalServerError, unknow }
 
 extension HttpCode on ResultStatusCode {
   int get code {
     switch (this) {
       case ResultStatusCode.ok:
         return 200;
+      case ResultStatusCode.created:
+        return 201;
       case ResultStatusCode.badRequest:
         return 400;
       case ResultStatusCode.unauthorized:

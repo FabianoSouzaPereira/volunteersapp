@@ -5,13 +5,17 @@ import 'package:flutter/foundation.dart';
 import 'package:volunteersapp/data/models/authentication/auth_accounts_signin_with_password/MfaEnrollment.dart';
 import 'package:volunteersapp/data/models/authentication/auth_accounts_signin_with_password/SignInWithPasswordResponseModelNotification.dart';
 
+//To save remote
 SignInWithPasswordResponseModel signInWithPasswordResponseModelFromJson(String str) => SignInWithPasswordResponseModel.fromJson(json.decode(str));
-
 String signInWithPasswordResponseModelToJson(SignInWithPasswordResponseModel data) => json.encode(data.toJson());
+
+//To save local
+SignInWithPasswordResponseModel signUpWithEmailAndPasswordFromMap(String str) => SignInWithPasswordResponseModel.fromMap(json.decode(str));
+String signUpWithEmailAndPasswordToMap(SignInWithPasswordResponseModel data) => json.encode(data.toMap());
 
 class SignInWithPasswordResponseModel extends Equatable {
   final String kind;
-  final String localId;
+  final String idToken;
   final String email;
   final String displayName;
   final bool registered;
@@ -20,7 +24,7 @@ class SignInWithPasswordResponseModel extends Equatable {
 
   const SignInWithPasswordResponseModel({
     required this.kind,
-    required this.localId,
+    required this.idToken,
     required this.email,
     required this.displayName,
     required this.registered,
@@ -30,7 +34,7 @@ class SignInWithPasswordResponseModel extends Equatable {
 
   factory SignInWithPasswordResponseModel.fromJson(Map<String, dynamic> json) => SignInWithPasswordResponseModel(
         kind: json['kind'],
-        localId: json['localId'],
+        idToken: json['idToken'],
         email: json['email'],
         displayName: json['displayName'],
         registered: json['registered'],
@@ -40,7 +44,7 @@ class SignInWithPasswordResponseModel extends Equatable {
 
   Map<String, dynamic> toJson() => {
         'kind': kind,
-        'localId': localId,
+        'idToken': idToken,
         'email': email,
         'displayName': displayName,
         'registered': registered,
@@ -48,10 +52,34 @@ class SignInWithPasswordResponseModel extends Equatable {
         'expiresIn': expiresIn,
       };
 
+  Map<String, dynamic> toMap() {
+    return {
+      'kind': kind,
+      'idToken': idToken,
+      'email': email,
+      'displayName': displayName,
+      'registered': registered,
+      'refreshToken': refreshToken,
+      'expiresIn': expiresIn,
+    };
+  }
+
+  factory SignInWithPasswordResponseModel.fromMap(Map<String, dynamic> map) {
+    return SignInWithPasswordResponseModel(
+      kind: map['kind'],
+      idToken: map['idToken'],
+      email: map['email'],
+      displayName: map['displayName'],
+      registered: map['registered'],
+      refreshToken: map['refreshToken'],
+      expiresIn: map['expiresIn'],
+    );
+  }
+
   @override
   List<Object> get props => [
         kind,
-        localId,
+        idToken,
         email,
         displayName,
         registered,
@@ -64,10 +92,9 @@ class SignInWithPasswordResponseModel extends Equatable {
 
   SignInWithPasswordResponseModel copyWith({
     String? kind,
-    String? localId,
+    String? idToken,
     String? email,
     String? displayName,
-    String? idToken,
     bool? registered,
     String? profilePicture,
     String? oauthAccessToken,
@@ -81,7 +108,7 @@ class SignInWithPasswordResponseModel extends Equatable {
   }) {
     return SignInWithPasswordResponseModel(
       kind: kind ?? this.kind,
-      localId: localId ?? this.localId,
+      idToken: idToken ?? this.idToken,
       email: email ?? this.email,
       displayName: displayName ?? this.displayName,
       registered: registered ?? this.registered,
@@ -96,7 +123,7 @@ class SignInWithPasswordResponseModel extends Equatable {
 
     return o is SignInWithPasswordResponseModel &&
         o.kind == kind &&
-        o.localId == localId &&
+        o.idToken == idToken &&
         o.email == email &&
         o.displayName == displayName &&
         o.registered == registered &&
@@ -106,12 +133,12 @@ class SignInWithPasswordResponseModel extends Equatable {
 
   @override
   int get hashCode {
-    return kind.hashCode ^ localId.hashCode ^ email.hashCode ^ displayName.hashCode ^ registered.hashCode ^ refreshToken.hashCode ^ expiresIn.hashCode;
+    return kind.hashCode ^ idToken.hashCode ^ email.hashCode ^ displayName.hashCode ^ registered.hashCode ^ refreshToken.hashCode ^ expiresIn.hashCode;
   }
 
   @override
   String toString() {
-    return 'SignInWithPasswordResponseModel{kind: $kind, localId: $localId, email: $email, displayName: $displayName, registered: $registered, refreshToken: $refreshToken, expiresIn: $expiresIn}';
+    return 'SignInWithPasswordResponseModel{kind: $kind, idToken: $idToken, email: $email, displayName: $displayName, registered: $registered, refreshToken: $refreshToken, expiresIn: $expiresIn}';
   }
 }
 
@@ -119,7 +146,7 @@ void main() {
   // Teste
   final signInWithPasswordResponse = SignInWithPasswordResponseModel(
     kind: "",
-    localId: "",
+    idToken: "",
     email: "",
     displayName: "",
     registered: true,

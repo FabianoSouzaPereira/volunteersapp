@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names
-
 const NotFoundPageRoute = 'notfound';
 const HomePageRoute = 'home';
 const UsersPageRoute = 'user';
@@ -9,3 +7,4 @@ const LeadersPageRoute = 'LeadersPageRoute';
 const EventsPageRoute = 'EventsPageRoute';
 const TeamsPageRoute = 'TeamsPageRoute';
 const LoginPageRoute = "login";
+const SplashPageRoute = "splash";
