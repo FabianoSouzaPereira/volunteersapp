@@ -13,6 +13,7 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String _backgroundImage = 'assets/images/background_image_black1.jpg';
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black26,
@@ -39,27 +40,19 @@ class UserPage extends StatelessWidget {
           width: double.infinity,
           color: Colors.transparent,
           child: Container(
-              color: Colors.transparent,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(_backgroundImage),
+                  fit: BoxFit.cover,
+                ),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                     child: ReorderableListWidget(
-                      items: [
-                        GestureDetector(
-                          child: const Text(
-                            "voltar para home",
-                            style: TextStyle(
-                              color: Colors.blue, // Cor do texto
-                              decoration: TextDecoration.underline, // Adiciona sublinhado para indicar clique
-                            ),
-                          ),
-                          onTap: () {
-                            GoRouter.of(context).go(paths.HomePagePath);
-                          },
-                        ),
-                      ],
+                      items: [],
                     ),
                   ),
                 ],

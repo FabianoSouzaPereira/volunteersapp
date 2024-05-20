@@ -15,6 +15,7 @@ import 'package:volunteersapp/domain/usecases/auth_use_case.dart';
 import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
 import 'package:volunteersapp/presentation/home/home_cubit.dart';
 import 'package:volunteersapp/presentation/home/widgets/card_cubit.dart';
+import 'package:volunteersapp/presentation/notification/notification_cubit.dart';
 import 'package:volunteersapp/presentation/settings/settings_cubit.dart';
 import 'package:volunteersapp/presentation/work/work_cubit.dart';
 
@@ -63,4 +64,5 @@ Future<void> setupLocator() async {
   getIt.registerSingleton<CardCubit>(CardCubit());
   getIt.registerSingleton<SettingsCubit>(SettingsCubit());
   getIt.registerSingleton<WorkCubit>(WorkCubit());
+  getIt.registerSingleton<NotificationCubit>(NotificationCubit());
 }

@@ -54,7 +54,7 @@ void main() {
         // Criando um objeto de resposta simulada
         final responseModel = const SignInWithPasswordResponseModel(
           kind: '',
-          localId: '',
+          idToken: '',
           email: '',
           displayName: '',
           registered: true,

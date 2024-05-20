@@ -64,12 +64,12 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              floatingActionButton: FloatingActionButton(
-                onPressed: () {
-                  context.read<HomeCubit>().updateIcons([Icons.work, Icons.favorite, Icons.settings, Icons.notifications, Icons.person, Icons.email, Icons.camera, Icons.movie]);
-                },
-                child: const Icon(Icons.refresh),
-              ),
+              // floatingActionButton: FloatingActionButton(
+              //   onPressed: () {
+              //     context.read<HomeCubit>().updateIcons([Icons.work, Icons.favorite, Icons.settings, Icons.notifications, Icons.person, Icons.email, Icons.camera, Icons.movie]);
+              //   },
+              //   child: const Icon(Icons.add),
+              // ),
             ),
           );
         },

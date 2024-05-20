@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:volunteersapp/core/router/paths.dart' as paths;
 
 class CustomIcon extends StatelessWidget {
   final String name;
@@ -21,7 +22,7 @@ class CustomIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).goNamed(route);
+        GoRouter.of(context).go(paths.HomePagePath);
       },
       child: Card(
         color: Colors.green,
