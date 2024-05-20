@@ -9,6 +9,17 @@ import 'package:volunteersapp/core/router/paths.dart' as paths;
 final List<HomeCard> cards = [
   HomeCard(
     onPressed: () {},
+    title: "Tasks",
+    icon: const CustomIcon(
+      name: "Tasks",
+      iconData: Icons.work,
+      route: paths.WorkPagePath,
+      iconColor: Colors.white,
+      notification: "",
+    ),
+  ),
+  HomeCard(
+    onPressed: () {},
     title: "Favorities",
     icon: const CustomIcon(
       name: "Favorite",
@@ -35,7 +46,7 @@ final List<HomeCard> cards = [
     icon: const CustomIcon(
       name: "Notifications",
       iconData: Icons.notifications,
-      route: 'route',
+      route: paths.NotificationPath,
       iconColor: Colors.white,
       notification: "",
     ),
@@ -91,8 +102,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   void updateIcons(List<IconData> updatedIcons) {
     if (updatedIcons.length != state.cards.length) {
-      throw ArgumentError(
-          "A quantidade de ícones atualizados não corresponde à quantidade de cartões existentes.");
+      throw ArgumentError("A quantidade de ícones atualizados não corresponde à quantidade de cartões existentes.");
     }
 
     List<HomeCard> updatedCards = state.cards.asMap().entries.map((entry) {

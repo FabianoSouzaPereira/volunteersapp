@@ -93,11 +93,15 @@ class HomeCardState extends State<HomeCard> {
                       height: 80,
                       color: Theme.of(context).primaryColor,
                       child: const Center(
+                        child: Material(
+                          elevation: 4.0,
                           child: Icon(
-                        Icons.schedule,
-                        color: Colors.white,
-                        size: 40,
-                      )),
+                            Icons.schedule,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

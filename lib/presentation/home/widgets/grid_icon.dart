@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:volunteersapp/core/router/router_config.dart';
 
 class CustomIcon extends StatelessWidget {
   final String name;

@@ -8,3 +8,5 @@ const EventsPageRoute = 'EventsPageRoute';
 const TeamsPageRoute = 'TeamsPageRoute';
 const LoginPageRoute = "login";
 const SplashPageRoute = "splash";
+const NotificationPageRoute = "notification";
+const WorkPageRoute = "works";

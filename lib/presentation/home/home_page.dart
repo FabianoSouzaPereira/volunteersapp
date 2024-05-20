@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context)!;
     var viewPaddingTop = MediaQuery.of(context).viewPadding.top;
+    String _backgroundImage = 'assets/images/background_image_black1.jpg';
 
     return BlocProvider(
       create: (context) => HomeCubit(),
@@ -22,30 +23,35 @@ class HomePage extends StatelessWidget {
           return SafeArea(
             top: true,
             child: Scaffold(
-              backgroundColor: Colors.black26,
+              backgroundColor: Colors.transparent,
               appBar: AppBar(
                 title: Text(
                   locale.voluntiers(0)[0].toUpperCase() + locale.voluntiers(0).substring(1).toLowerCase(),
                   style: const TextStyle(
                     color: Colors.white,
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.transparent,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.transparent,
               ),
               body: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(_backgroundImage),
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 height: double.infinity,
                 width: double.infinity,
-                color: Colors.transparent,
                 child: Container(
                   color: Colors.transparent,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      SizedBox(height: viewPaddingTop),
+                      SizedBox(height: viewPaddingTop - 15),
                       Expanded(
                         flex: 1,
                         child: Padding(
@@ -60,16 +66,7 @@ class HomePage extends StatelessWidget {
               ),
               floatingActionButton: FloatingActionButton(
                 onPressed: () {
-                  // Example of triggering the event to update icons
-                  context.read<HomeCubit>().updateIcons([
-                    Icons.favorite,
-                    Icons.settings,
-                    Icons.notifications,
-                    Icons.person,
-                    Icons.email,
-                    Icons.camera,
-                    Icons.videocam
-                  ]);
+                  context.read<HomeCubit>().updateIcons([Icons.work, Icons.favorite, Icons.settings, Icons.notifications, Icons.person, Icons.email, Icons.camera, Icons.movie]);
                 },
                 child: const Icon(Icons.refresh),
               ),

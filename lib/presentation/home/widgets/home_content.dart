@@ -29,14 +29,16 @@ class HomeContent extends StatelessWidget {
               backgroundColor: Theme.of(context).colorScheme.inversePrimary,
               title: Text(locale.voluntiers(1)[0].toUpperCase() + locale.voluntiers(1).substring(1).toLowerCase()),
             ),
-            body: ListView.builder(
-              itemCount: cubit.state.cards.length,
-              itemBuilder: (ctx, index) {
-                return Container(
-                  color: Theme.of(context).cardColor,
-                  child: CardsGrid(cards: cards),
-                );
-              },
+            body: Container(
+              child: ListView.builder(
+                itemCount: cubit.state.cards.length,
+                itemBuilder: (ctx, index) {
+                  return Container(
+                    color: Theme.of(context).cardColor,
+                    child: CardsGrid(cards: cards),
+                  );
+                },
+              ),
             ),
           ),
         ),

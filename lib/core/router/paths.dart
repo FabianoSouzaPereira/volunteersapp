@@ -8,3 +8,5 @@ const EventsPagePath = '/eventspageroute';
 const TeamsPagePath = '/teamspageroute';
 const LoginPagePath = '/login';
 const SplashPagePath = '/splash';
+const NotificationPath = '/notification';
+const WorkPagePath = '/works';

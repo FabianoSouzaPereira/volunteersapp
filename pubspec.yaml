@@ -52,3 +52,6 @@ flutter:
   assets:
     #- config_base64.json
     - assets/config.json
+    - assets/images/background_image_drop.jpg
+    - assets/images/background_image_black1.jpg
+    - assets/images/background_image_brics.jpg

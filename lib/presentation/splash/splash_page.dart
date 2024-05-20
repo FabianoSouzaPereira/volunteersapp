@@ -27,10 +27,10 @@ class _SplashPageState extends State<SplashPage> {
     bool tokenIsValid = await _checkTokenValidity(token);
 
     if (tokenIsValid) {
-      sleep(Duration(seconds: 5));
+      sleep(Duration(microseconds: 1000));
       GoRouter.of(context).go(HomePagePath);
     } else {
-      sleep(Duration(seconds: 5));
+      sleep(Duration(microseconds: 1000));
       GoRouter.of(context).go(LoginPagePath);
     }
   }

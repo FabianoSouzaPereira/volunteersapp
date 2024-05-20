@@ -7,9 +7,11 @@ import 'package:volunteersapp/presentation/auth/auth_page.dart';
 import 'package:volunteersapp/presentation/events/Events_page.dart';
 import 'package:volunteersapp/presentation/home/home_page.dart';
 import 'package:volunteersapp/presentation/notFound/page_notfound.dart';
+import 'package:volunteersapp/presentation/notification/notification_page.dart';
 import 'package:volunteersapp/presentation/settings/settings_page.dart';
 import 'package:volunteersapp/presentation/splash/splash_page.dart';
 import 'package:volunteersapp/presentation/user/user_page.dart';
+import 'package:volunteersapp/presentation/work/work_page.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -30,6 +32,8 @@ GoRouter router = GoRouter(
       paths.LeadersPagePath,
       paths.TeamsPagePath,
       paths.EventsPagePath,
+      paths.NotificationPath,
+      paths.WorkPagePath,
     ];
 
     if (!validRoutes.contains(requestedPath)) {
@@ -68,6 +72,16 @@ GoRouter router = GoRouter(
       path: paths.SettingsPagePath,
       name: routes.SettingsPageRoute,
       builder: (context, state) => const SettingsPage(title: 'Settings'),
+    ),
+    GoRoute(
+      path: paths.NotificationPath,
+      name: routes.NotificationPageRoute,
+      builder: (context, state) => const NotificationPage(),
+    ),
+    GoRoute(
+      path: paths.WorkPagePath,
+      name: routes.WorkPageRoute,
+      builder: (context, state) => WorkPage(title: 'Works'),
     ),
     GoRoute(
       path: paths.NotFoundPath,

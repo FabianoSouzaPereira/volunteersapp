@@ -26,6 +26,12 @@ class UserPage extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () {
+              GoRouter.of(context).go(paths.HomePagePath);
+            },
+          ),
           backgroundColor: Colors.black,
         ),
         body: Container(

@@ -11,6 +11,7 @@ import 'package:volunteersapp/presentation/home/home_cubit.dart';
 import 'package:volunteersapp/presentation/home/widgets/card_cubit.dart';
 import 'package:volunteersapp/presentation/settings/settings_cubit.dart';
 import 'package:kafkabr/kafka.dart';
+import 'package:volunteersapp/presentation/work/work_cubit.dart';
 
 void main() async {
   var host = ContactPoint('127.0.0.1', 9092);
@@ -42,6 +43,9 @@ class MyApp extends StatelessWidget {
         ),
         Provider<SettingsCubit>(
           create: (_) => getIt.get<SettingsCubit>(),
+        ),
+        Provider<WorkCubit>(
+          create: (_) => getIt.get<WorkCubit>(),
         ),
       ],
       child: MaterialApp.router(
