@@ -1,0 +1,6 @@
+enum AuthResetPasswordError {
+  OPERATION_NOT_ALLOWED,
+  EXPIRED_OOB_CODE,
+  INVALID_OOB_CODE,
+  USER_DISABLED,
+}

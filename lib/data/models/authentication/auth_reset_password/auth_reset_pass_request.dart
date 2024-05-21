@@ -1,3 +1,11 @@
+/* Verifique o código de redefinição de senha
+*  pode verificar um código de redefinição de senha emitindo uma solicitação HTTP POST para o endpoint Auth resetPassword .
+*  
+*  Método: POSTAR
+*  https://identitytoolkit.googleapis.com/v1/accounts:resetPassword?key=[API_KEY]
+*  Tipo de conteúdo: application/json 
+*/
+
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 
