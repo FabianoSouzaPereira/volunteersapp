@@ -9,11 +9,11 @@ import 'package:volunteersapp/data/models/authentication/auth_accounts_signin_wi
 import 'package:volunteersapp/data/models/authentication/auth_accounts_signin_with_password/SignInWithPasswordResponseModelNotification.dart';
 import 'package:volunteersapp/data/models/authentication/auth_accounts_signin_with_password/TotpInfo.dart';
 
-SignInWithPasswordResponseModel2 signInWithPasswordResponseModelFromJson(String str) => SignInWithPasswordResponseModel2.fromJson(json.decode(str));
+SignInWithPasswordResponseModel signInWithPasswordResponseModelFromJson(String str) => SignInWithPasswordResponseModel.fromJson(json.decode(str));
 
-String signInWithPasswordResponseModelToJson(SignInWithPasswordResponseModel2 data) => json.encode(data.toJson());
+String signInWithPasswordResponseModelToJson(SignInWithPasswordResponseModel data) => json.encode(data.toJson());
 
-class SignInWithPasswordResponseModel2 extends Equatable {
+class SignInWithPasswordResponseModel extends Equatable {
   final String kind;
   final String localId;
   final String email;
@@ -30,7 +30,7 @@ class SignInWithPasswordResponseModel2 extends Equatable {
   final List<MfaEnrollment> mfaInfo;
   final List<SignInWithPasswordResponseModelNotification> signInWithPasswordResponseModelNotifications;
 
-  const SignInWithPasswordResponseModel2({
+  const SignInWithPasswordResponseModel({
     required this.kind,
     required this.localId,
     required this.email,
@@ -48,7 +48,7 @@ class SignInWithPasswordResponseModel2 extends Equatable {
     required this.signInWithPasswordResponseModelNotifications,
   });
 
-  factory SignInWithPasswordResponseModel2.fromJson(Map<String, dynamic> json) => SignInWithPasswordResponseModel2(
+  factory SignInWithPasswordResponseModel.fromJson(Map<String, dynamic> json) => SignInWithPasswordResponseModel(
         kind: json['kind'],
         localId: json['localId'],
         email: json['email'],
@@ -107,7 +107,7 @@ class SignInWithPasswordResponseModel2 extends Equatable {
   @override
   bool get stringify => true;
 
-  SignInWithPasswordResponseModel2 copyWith({
+  SignInWithPasswordResponseModel copyWith({
     String? kind,
     String? localId,
     String? email,
@@ -124,7 +124,7 @@ class SignInWithPasswordResponseModel2 extends Equatable {
     List<MfaEnrollment>? mfaInfo,
     List<SignInWithPasswordResponseModelNotification>? signInWithPasswordResponseModelNotifications,
   }) {
-    return SignInWithPasswordResponseModel2(
+    return SignInWithPasswordResponseModel(
       kind: kind ?? this.kind,
       localId: localId ?? this.localId,
       email: email ?? this.email,
@@ -147,7 +147,7 @@ class SignInWithPasswordResponseModel2 extends Equatable {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
-    return o is SignInWithPasswordResponseModel2 &&
+    return o is SignInWithPasswordResponseModel &&
         o.kind == kind &&
         o.localId == localId &&
         o.email == email &&
@@ -186,13 +186,13 @@ class SignInWithPasswordResponseModel2 extends Equatable {
 
   @override
   String toString() {
-    return 'SignInWithPasswordResponseModel2{kind: $kind, localId: $localId, email: $email, displayName: $displayName, idToken: $idToken, registered: $registered, profilePicture: $profilePicture, oauthAccessToken: $oauthAccessToken, oauthExpireIn: $oauthExpireIn, oauthAuthorizationCode: $oauthAuthorizationCode, refreshToken: $refreshToken, expiresIn: $expiresIn, mfaPendingCredential: $mfaPendingCredential, mfaInfo: $mfaInfo, signInWithPasswordResponseModelNotifications: $signInWithPasswordResponseModelNotifications}';
+    return 'SignInWithPasswordResponseModel{kind: $kind, localId: $localId, email: $email, displayName: $displayName, idToken: $idToken, registered: $registered, profilePicture: $profilePicture, oauthAccessToken: $oauthAccessToken, oauthExpireIn: $oauthExpireIn, oauthAuthorizationCode: $oauthAuthorizationCode, refreshToken: $refreshToken, expiresIn: $expiresIn, mfaPendingCredential: $mfaPendingCredential, mfaInfo: $mfaInfo, signInWithPasswordResponseModelNotifications: $signInWithPasswordResponseModelNotifications}';
   }
 }
 
 void main() {
   // Teste
-  final signInWithPasswordResponse = SignInWithPasswordResponseModel2(
+  final signInWithPasswordResponse = SignInWithPasswordResponseModel(
     kind: "",
     localId: "",
     email: "",
