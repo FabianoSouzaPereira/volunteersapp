@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 
+part 'list_documents_response.g.dart';
+
 ListDocumentsResponse listDocumentsResponseFromJson(String str) => ListDocumentsResponse.fromJson(json.decode(str));
 
 String listDocumentsResponseToJson(ListDocumentsResponse data) => json.encode(data.toJson());
@@ -26,13 +28,7 @@ class ListDocumentsResponse {
         nextPageToken: nextPageToken ?? this.nextPageToken,
       );
 
-  factory ListDocumentsResponse.fromJson(Map<String, dynamic> json) => ListDocumentsResponse(
-        documents: List<dynamic>.from(json["documents"].map((x) => x)),
-        nextPageToken: json["nextPageToken"],
-      );
+  factory ListDocumentsResponse.fromJson(Map<String, dynamic> json) => _$ListDocumentsResponseFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "documents": List<dynamic>.from(documents.map((x) => x)),
-        "nextPageToken": nextPageToken,
-      };
+  Map<String, dynamic> toJson() => _$ListDocumentsResponseToJson(this);
 }

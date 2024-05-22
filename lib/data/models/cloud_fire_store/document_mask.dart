@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 
+part 'document_mask.g.dart';
+
 DocumentMask documentMaskFromJson(String str) => DocumentMask.fromJson(json.decode(str));
 
 String documentMaskToJson(DocumentMask data) => json.encode(data.toJson());
@@ -21,11 +23,7 @@ class DocumentMask {
         fieldPaths: fieldPaths ?? this.fieldPaths,
       );
 
-  factory DocumentMask.fromJson(Map<String, dynamic> json) => DocumentMask(
-        fieldPaths: List<String>.from(json["fieldPaths"].map((x) => x)),
-      );
+  factory DocumentMask.fromJson(Map<String, dynamic> json) => _$DocumentMaskFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "fieldPaths": List<dynamic>.from(fieldPaths.map((x) => x)),
-      };
+  Map<String, dynamic> toJson() => _$DocumentMaskToJson(this);
 }

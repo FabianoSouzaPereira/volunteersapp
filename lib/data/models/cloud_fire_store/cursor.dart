@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 
+part 'cursor.g.dart';
+
 Cursor cursorFromJson(String str) => Cursor.fromJson(json.decode(str));
 
 String cursorToJson(Cursor data) => json.encode(data.toJson());
@@ -26,13 +28,7 @@ class Cursor {
         before: before ?? this.before,
       );
 
-  factory Cursor.fromJson(Map<String, dynamic> json) => Cursor(
-        values: List<dynamic>.from(json["values"].map((x) => x)),
-        before: json["before"],
-      );
+  factory Cursor.fromJson(Map<String, dynamic> json) => _$CursorFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "values": List<dynamic>.from(values.map((x) => x)),
-        "before": before,
-      };
+  Map<String, dynamic> toJson() => _$CursorToJson(this);
 }

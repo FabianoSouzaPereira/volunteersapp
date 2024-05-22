@@ -13,6 +13,8 @@ import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
 
+part 'structured_query.g.dart';
+
 StructuredQuery structuredQueryFromJson(String str) => StructuredQuery.fromJson(json.decode(str));
 
 String structuredQueryToJson(StructuredQuery data) => json.encode(data.toJson());
@@ -68,27 +70,9 @@ class StructuredQuery {
         limit: limit ?? this.limit,
       );
 
-  factory StructuredQuery.fromJson(Map<String, dynamic> json) => StructuredQuery(
-        select: Select.fromJson(json["select"]),
-        from: List<From>.from(json["from"].map((x) => From.fromJson(x))),
-        where: Where.fromJson(json["where"]),
-        orderBy: List<OrderBy>.from(json["orderBy"].map((x) => OrderBy.fromJson(x))),
-        startAt: At.fromJson(json["startAt"]),
-        endAt: At.fromJson(json["endAt"]),
-        offset: json["offset"],
-        limit: json["limit"],
-      );
+  factory StructuredQuery.fromJson(Map<String, dynamic> json) => _$StructuredQueryFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "select": select.toJson(),
-        "from": List<dynamic>.from(from.map((x) => x.toJson())),
-        "where": where.toJson(),
-        "orderBy": List<dynamic>.from(orderBy.map((x) => x.toJson())),
-        "startAt": startAt.toJson(),
-        "endAt": endAt.toJson(),
-        "offset": offset,
-        "limit": limit,
-      };
+  Map<String, dynamic> toJson() => _$StructuredQueryToJson(this);
 }
 
 @JsonSerializable()
@@ -107,13 +91,9 @@ class At {
         cursor: cursor ?? this.cursor,
       );
 
-  factory At.fromJson(Map<String, dynamic> json) => At(
-        cursor: Cursor.fromJson(json["Cursor"]),
-      );
+  factory At.fromJson(Map<String, dynamic> json) => _$AtFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "Cursor": cursor.toJson(),
-      };
+  Map<String, dynamic> toJson() => _$AtToJson(this);
 }
 
 @JsonSerializable()
@@ -132,11 +112,9 @@ class Cursor {
         cursor: cursor ?? this.cursor,
       );
 
-  factory Cursor.fromJson(Map<String, dynamic> json) => Cursor(
-        cursor: Cursor.fromJson(json["Cursor"]),
-      );
+  factory Cursor.fromJson(Map<String, dynamic> json) => _$CursorFromJson(json);
 
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => _$CursorToJson(this);
 }
 
 @JsonSerializable()
@@ -155,13 +133,9 @@ class From {
         collectionSelector: collectionSelector ?? this.collectionSelector,
       );
 
-  factory From.fromJson(Map<String, dynamic> json) => From(
-        collectionSelector: Cursor.fromJson(json["CollectionSelector"]),
-      );
+  factory From.fromJson(Map<String, dynamic> json) => _$FromFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "CollectionSelector": collectionSelector.toJson(),
-      };
+  Map<String, dynamic> toJson() => _$FromToJson(this);
 }
 
 @JsonSerializable()
@@ -180,13 +154,9 @@ class OrderBy {
         order: order ?? this.order,
       );
 
-  factory OrderBy.fromJson(Map<String, dynamic> json) => OrderBy(
-        order: Cursor.fromJson(json["Order"]),
-      );
+  factory OrderBy.fromJson(Map<String, dynamic> json) => _$OrderByFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "Order": order.toJson(),
-      };
+  Map<String, dynamic> toJson() => _$OrderByToJson(this);
 }
 
 @JsonSerializable()
@@ -205,13 +175,9 @@ class Select {
         project: project ?? this.project,
       );
 
-  factory Select.fromJson(Map<String, dynamic> json) => Select(
-        project: Cursor.fromJson(json["project"]),
-      );
+  factory Select.fromJson(Map<String, dynamic> json) => _$SelectFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "project": project.toJson(),
-      };
+  Map<String, dynamic> toJson() => _$SelectToJson(this);
 }
 
 @JsonSerializable()
@@ -230,11 +196,7 @@ class Where {
         filter: filter ?? this.filter,
       );
 
-  factory Where.fromJson(Map<String, dynamic> json) => Where(
-        filter: Cursor.fromJson(json["Filter"]),
-      );
+  factory Where.fromJson(Map<String, dynamic> json) => _$WhereFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "Filter": filter.toJson(),
-      };
+  Map<String, dynamic> toJson() => _$WhereToJson(this);
 }
