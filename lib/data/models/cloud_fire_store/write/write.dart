@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
 import 'package:volunteersapp/data/models/cloud_fire_store/write/current_document.dart';
-import 'package:volunteersapp/data/models/cloud_fire_store/write/transform.dart';
+import 'package:volunteersapp/data/models/cloud_fire_store/write/document_transform.dart';
 import 'package:volunteersapp/data/models/cloud_fire_store/write/update.dart';
 import 'package:volunteersapp/data/models/cloud_fire_store/write/update_mask.dart';
 import 'package:volunteersapp/data/models/cloud_fire_store/write/update_transform.dart';
@@ -26,7 +26,7 @@ class Write {
   @JsonKey(name: "delete")
   final String delete;
   @JsonKey(name: "transform")
-  final Transform transform;
+  final DocumentTransform transform;
 
   Write({
     required this.updateMask,
@@ -43,7 +43,7 @@ class Write {
     CurrentDocument? currentDocument,
     Update? update,
     String? delete,
-    Transform? transform,
+    DocumentTransform? transform,
   }) =>
       Write(
         updateMask: updateMask ?? this.updateMask,

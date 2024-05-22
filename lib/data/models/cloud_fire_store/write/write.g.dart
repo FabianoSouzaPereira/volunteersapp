@@ -16,7 +16,8 @@ Write _$WriteFromJson(Map<String, dynamic> json) => Write(
           json['currentDocument'] as Map<String, dynamic>),
       update: Update.fromJson(json['update'] as Map<String, dynamic>),
       delete: json['delete'] as String,
-      transform: Transform.fromJson(json['transform'] as Map<String, dynamic>),
+      transform:
+          DocumentTransform.fromJson(json['transform'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$WriteToJson(Write instance) => <String, dynamic>{

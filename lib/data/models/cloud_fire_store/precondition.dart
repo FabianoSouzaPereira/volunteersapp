@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'package:json_annotation/json_annotation.dart';
 
-Precondition preconditionFromJson(String str) => Precondition.fromJson(json.decode(str));
-
-String preconditionToJson(Precondition data) => json.encode(data.toJson());
+part 'precondition.g.dart';
 
 @JsonSerializable()
 class Precondition {
@@ -18,21 +15,14 @@ class Precondition {
   });
 
   Precondition copyWith({
-    bool? exists,
-    String? updateTime,
+    Precondition? precondition,
   }) =>
       Precondition(
-        exists: exists ?? this.exists,
-        updateTime: updateTime ?? this.updateTime,
+        exists: exists,
+        updateTime: updateTime,
       );
 
-  factory Precondition.fromJson(Map<String, dynamic> json) => Precondition(
-        exists: json["exists"],
-        updateTime: json["updateTime"],
-      );
+  factory Precondition.fromJson(Map<String, dynamic> json) => _$PreconditionFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "exists": exists,
-        "updateTime": updateTime,
-      };
+  Map<String, dynamic> toJson() => _$PreconditionToJson(this);
 }

@@ -1,19 +1,19 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:volunteersapp/data/models/cloud_fire_store/precondition.dart';
+import 'package:volunteersapp/data/models/cloud_fire_store/projects/databases/documents/document.dart';
 
 part 'update.g.dart';
 
 @JsonSerializable()
 class Update {
   @JsonKey(name: "Document")
-  final Precondition document;
+  final Document document;
 
   Update({
     required this.document,
   });
 
   Update copyWith({
-    Precondition? document,
+    Document? document,
   }) =>
       Update(
         document: document ?? this.document,

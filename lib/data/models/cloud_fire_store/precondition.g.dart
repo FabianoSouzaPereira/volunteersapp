@@ -7,11 +7,12 @@ part of 'precondition.dart';
 // **************************************************************************
 
 Precondition _$PreconditionFromJson(Map<String, dynamic> json) => Precondition(
-      precondition:
-          Precondition.fromJson(json['Precondition'] as Map<String, dynamic>),
+      exists: json['exists'] as bool,
+      updateTime: json['updateTime'] as String,
     );
 
 Map<String, dynamic> _$PreconditionToJson(Precondition instance) =>
     <String, dynamic>{
-      'Precondition': instance.precondition,
+      'exists': instance.exists,
+      'updateTime': instance.updateTime,
     };

@@ -7,7 +7,7 @@ part of 'update.dart';
 // **************************************************************************
 
 Update _$UpdateFromJson(Map<String, dynamic> json) => Update(
-      document: Precondition.fromJson(json['Document'] as Map<String, dynamic>),
+      document: Document.fromJson(json['Document'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UpdateToJson(Update instance) => <String, dynamic>{
