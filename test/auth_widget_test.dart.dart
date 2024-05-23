@@ -7,7 +7,7 @@ import 'package:volunteersapp/core/http/dio_http_client.dart';
 import 'package:volunteersapp/data/auth/remote_repository/auth_repository_DataSourceImpl.dart';
 import 'package:volunteersapp/core/http/constants.dart';
 import 'package:volunteersapp/data/models/authentication/auth_signIn_with_password_model/signin_with_password_Model.dart';
-import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth_repository_datasource.dart';
+import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_repository_datasource.dart';
 
 // Mocking DioHttpClient
 class MockDioHttpClient extends Mock implements DioHttpClient {

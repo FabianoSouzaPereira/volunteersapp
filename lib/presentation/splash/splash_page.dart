@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:volunteersapp/core/router/paths.dart';
 import 'package:volunteersapp/data/models/authentication/auth_signIn_with_password_model/signin_with_password_Model.dart';
-import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth_local_repository.dart';
+import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

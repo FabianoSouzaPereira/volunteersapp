@@ -1,5 +1,6 @@
 {
     "dart.lineLength": 200,
     "git.inputValidationLength": 75,
-    "html.format.wrapLineLength": 200
+    "html.format.wrapLineLength": 200,
+    "dart.flutterSdkPath": "/Users/fabiano/development/flutter/bin/flutter"
 }
