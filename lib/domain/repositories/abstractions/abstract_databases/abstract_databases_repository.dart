@@ -2,7 +2,7 @@ import 'package:volunteersapp/data/models/cloud_fire_store/projects/databases/da
 import 'package:volunteersapp/data/models/cloud_fire_store/projects/databases/operations/operation.dart';
 import 'package:volunteersapp/domain/repositories/response_data.dart';
 
-abstract class AbstractDatabasesRepossitory {
+abstract class AbstractDatabasesRepository {
   Future<ResponseData<Operation>> create();
   Future<ResponseData<Operation>> delete();
   Future<ResponseData<Operation>> exportDocuments();
