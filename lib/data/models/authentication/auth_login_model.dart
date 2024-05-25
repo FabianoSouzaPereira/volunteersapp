@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:volunteersapp/domain/entities/auth_login_entity.dart';
 
