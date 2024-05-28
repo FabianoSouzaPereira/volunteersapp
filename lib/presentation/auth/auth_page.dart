@@ -7,6 +7,8 @@ import 'package:go_router/go_router.dart';
 import 'package:volunteersapp/core/router/routes.dart';
 import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
 import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
+import 'package:volunteersapp/presentation/theme/app_style.dart';
+import 'package:volunteersapp/presentation/theme/app_theme.dart';
 
 class AuthPage extends StatelessWidget {
   AuthPage({
@@ -44,9 +46,13 @@ class AuthPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'Login',
-                    style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: AppTheme.darkTheme.textTheme.bodyLarge!.color,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 20.0),
                   TextField(

@@ -1,5 +1,3 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +11,7 @@ import 'package:volunteersapp/presentation/home/home_cubit.dart';
 import 'package:volunteersapp/presentation/home/widgets/card_cubit.dart';
 import 'package:volunteersapp/presentation/settings/settings_cubit.dart';
 import 'package:kafkabr/kafka.dart';
+import 'package:volunteersapp/presentation/theme/app_theme.dart';
 import 'package:volunteersapp/presentation/work/work_cubit.dart';
 
 void main() async {
@@ -32,6 +31,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData lightTheme = AppTheme.lightTheme;
+    ThemeData darkTheme = AppTheme.darkTheme;
     return MultiProvider(
       providers: [
         Provider<AuthCubit>(
@@ -52,10 +53,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp.router(
         title: 'Volunteers',
+        themeMode: AppTheme.currentThemeMode == AppThemeMode.light ? ThemeMode.light : ThemeMode.dark,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
           useMaterial3: true,
         ),
+        darkTheme: darkTheme,
         routerDelegate: router.routerDelegate,
         routeInformationParser: router.routeInformationParser,
         routeInformationProvider: router.routeInformationProvider,

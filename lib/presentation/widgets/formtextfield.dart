@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:volunteersapp/presentation/theme/app_theme.dart';
 
 class FormTextField extends StatefulWidget {
+  String? initialData;
   final GlobalKey<FormState> formKey;
   final bool enable;
 
@@ -37,7 +39,8 @@ class FormTextField extends StatefulWidget {
   final String? idecorTextStylepackage;
   final TextOverflow? idecorTextStyleoverflow;
 
-  FormTextField({
+  FormTextField(
+    this.initialData, {
     Key? key,
     required this.formKey,
     required this.enable,
@@ -70,7 +73,9 @@ class FormTextField extends StatefulWidget {
     this.idecorTextStylefontFamilyFallback,
     this.idecorTextStylepackage,
     this.idecorTextStyleoverflow,
-  }) : super(key: key);
+  }) : super(key: key) {
+    key = key;
+  }
 
   TextEditingController _controller = TextEditingController();
   String get value => _controller.text;
@@ -81,6 +86,12 @@ class FormTextField extends StatefulWidget {
 
 class _FormTextFieldState extends State<FormTextField> {
   @override
+  void initState() {
+    super.initState();
+    widget._controller.text = widget.initialData ?? '';
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -88,49 +99,62 @@ class _FormTextFieldState extends State<FormTextField> {
         key: widget.formKey,
         child: Column(
           children: <Widget>[
-            TextFormField(
-              key: widget.key,
-              controller: widget._controller,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-              enabled: widget.enable,
-              decoration: InputDecoration(
-                labelText: widget.textFormFieldInputDecorationlabel,
-                labelStyle: TextStyle(
-                  inherit: widget.idecorTextStyleInherit ?? true,
-                  color: widget.idecorTextStyleColor ?? Colors.black,
-                  backgroundColor: widget.idecorTextStylebackgroundColor ?? Colors.transparent,
-                  fontSize: widget.idecorTextStylefontSize ?? 18,
-                  fontWeight: widget.idecorTextStylefontWeight ?? FontWeight.bold,
-                  fontStyle: widget.idecorTextStylefontStyle ?? FontStyle.normal,
-                  letterSpacing: widget.idecorTextStyleletterSpacing,
-                  wordSpacing: widget.idecorTextStylewordSpacing,
-                  textBaseline: widget.idecorTextStyletextBaseline,
-                  height: widget.idecorTextStyleheight,
-                  leadingDistribution: widget.idecorTextStyleleadingDistribution,
-                  locale: widget.idecorTextStylelocale,
-                  foreground: widget.idecorTextStyleforeground,
-                  background: widget.idecorTextStylebackground,
-                  shadows: widget.idecorTextStyleshadows,
-                  fontFeatures: widget.idecorTextStylefontFeatures,
-                  fontVariations: widget.idecorTextStylefontVariations,
-                  decoration: widget.idecorTextStyledecoration,
-                  decorationColor: widget.idecorTextStyledecorationColor,
-                  decorationStyle: widget.idecorTextStyledecorationStyle,
-                  decorationThickness: widget.idecorTextStyledecorationThickness,
-                  debugLabel: widget.idecorTextStyledebugLabel,
-                  fontFamily: widget.idecorTextStylefontFamily,
-                  fontFamilyFallback: widget.idecorTextStylefontFamilyFallback,
-                  package: widget.idecorTextStylepackage,
-                  overflow: widget.idecorTextStyleoverflow,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                key: widget.key,
+                controller: widget._controller,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+                enabled: widget.enable,
+                autofocus: false,
+                decoration: InputDecoration(
+                  labelText: widget.textFormFieldInputDecorationlabel,
+                  labelStyle: TextStyle(
+                    inherit: widget.idecorTextStyleInherit ?? true,
+                    color: widget.idecorTextStyleColor ?? AppTheme.currentTheme.textTheme.labelSmall!.color,
+                    backgroundColor: widget.idecorTextStylebackgroundColor ?? AppTheme.currentTheme.colorScheme.background,
+                    fontSize: widget.idecorTextStylefontSize ?? AppTheme.currentTheme.inputDecorationTheme.labelStyle!.fontSize,
+                    fontWeight: widget.idecorTextStylefontWeight ?? FontWeight.normal,
+                    fontStyle: widget.idecorTextStylefontStyle ?? FontStyle.normal,
+                    letterSpacing: widget.idecorTextStyleletterSpacing,
+                    wordSpacing: widget.idecorTextStylewordSpacing,
+                    textBaseline: widget.idecorTextStyletextBaseline,
+                    height: widget.idecorTextStyleheight,
+                    leadingDistribution: widget.idecorTextStyleleadingDistribution,
+                    locale: widget.idecorTextStylelocale,
+                    foreground: widget.idecorTextStyleforeground,
+                    background: widget.idecorTextStylebackground,
+                    shadows: widget.idecorTextStyleshadows,
+                    fontFeatures: widget.idecorTextStylefontFeatures,
+                    fontVariations: widget.idecorTextStylefontVariations,
+                    decoration: widget.idecorTextStyledecoration,
+                    decorationColor: widget.idecorTextStyledecorationColor,
+                    decorationStyle: widget.idecorTextStyledecorationStyle,
+                    decorationThickness: widget.idecorTextStyledecorationThickness,
+                    debugLabel: widget.idecorTextStyledebugLabel,
+                    fontFamily: widget.idecorTextStylefontFamily,
+                    fontFamilyFallback: widget.idecorTextStylefontFamilyFallback,
+                    package: widget.idecorTextStylepackage,
+                    overflow: widget.idecorTextStyleoverflow,
+                  ),
+                  filled: true,
+                  fillColor: widget.textFormFieldInputDecorationColor ?? AppTheme.currentTheme.inputDecorationTheme.fillColor,
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: Colors.blue, width: 4.0),
+                  ),
                 ),
-                filled: true,
-                fillColor: widget.textFormFieldInputDecorationColor ?? Colors.white,
-                border: widget.textFormInputDecorationBorder ?? OutlineInputBorder(),
               ),
             ),
           ],

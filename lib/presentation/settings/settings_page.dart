@@ -44,8 +44,7 @@ class SettingsPage extends StatelessWidget {
                           "voltar para home",
                           style: TextStyle(
                             color: Colors.blue, // Cor do texto
-                            decoration: TextDecoration
-                                .underline, // Adiciona sublinhado para indicar clique
+                            decoration: TextDecoration.underline, // Adiciona sublinhado para indicar clique
                           ),
                         ),
                         onTap: () {

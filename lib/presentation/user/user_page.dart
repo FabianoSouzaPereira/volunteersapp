@@ -55,23 +55,24 @@ class UserPage extends StatelessWidget {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              FomTextFields(
-                                listFormTextFields: [
-                                  FormTextField(formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'Name'),
-                                  FormTextField(formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'Address'),
-                                ],
-                              ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          SizedBox(height: 8),
+                          FormTextFields(
+                            listFormTextFields: [
+                              FormTextField("teste1", formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'Name'),
+                              FormTextField("teste2", formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'Address'),
+                              FormTextField("teste3", formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'Neyborhood'),
+                              FormTextField("teste4", formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'city'),
+                              FormTextField("teste5", formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'zipcode'),
+                              FormTextField("teste6", formKey: GlobalKey<FormState>(), enable: true, textFormFieldInputDecorationlabel: 'Country'),
                             ],
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     )),
               ),
             ),
