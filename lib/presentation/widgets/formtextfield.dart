@@ -5,6 +5,8 @@ class FormTextField extends StatefulWidget {
   String? initialData;
   final GlobalKey<FormState> formKey;
   final bool enable;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
 
   // InputDecoration
   final String textFormFieldInputDecorationlabel;
@@ -45,6 +47,8 @@ class FormTextField extends StatefulWidget {
     required this.formKey,
     required this.enable,
     required this.textFormFieldInputDecorationlabel,
+    this.keyboardType,
+    this.textInputAction,
     this.textFormInputDecorationBorder,
     this.textFormFieldInputDecorationColor,
     this.idecorTextStyleInherit,
@@ -112,6 +116,8 @@ class _FormTextFieldState extends State<FormTextField> {
                 },
                 enabled: widget.enable,
                 autofocus: false,
+                keyboardType: widget.keyboardType,
+                textInputAction: widget.textInputAction,
                 decoration: InputDecoration(
                   labelText: widget.textFormFieldInputDecorationlabel,
                   labelStyle: TextStyle(
