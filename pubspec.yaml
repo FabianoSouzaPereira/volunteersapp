@@ -85,43 +85,40 @@ flutter:
         - asset: assets/fonts/lato/Lato-ThinItalic.ttf
     - family: MontSerrat
       fonts:
-        - asset: assets/fonts/monserrat/Montserrat-italic-VariableFont_wght.ttf
-        - asset: assets/fonts/monserrat/Montserrat-VariableFont_wght.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-Black.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-BlackItalic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-Bold.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-BoldItalic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-ExtraBold.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-ExrtaBoldItalic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-ExtraLight.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-ExtraLightItalic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-Italic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-Light.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-LightItalic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-Medium.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-MediumItalic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-Regular.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-SemiBold.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-SemiboldItalic.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-Thin.ttf
-        - asset: assets/fonts/monserrat/static/Montserrat-ThinItalic.ttf
-    - family: NunitoSans
-      fonts:
-        - asset: assets/fonts/
-    - fanily: Pangolin
+        - asset: assets/fonts/montserrat/Montserrat-italic-VariableFont_wght.ttf
+        - asset: assets/fonts/montserrat/Montserrat-VariableFont_wght.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-Black.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-BlackItalic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-Bold.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-BoldItalic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-ExtraBold.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-ExtraBoldItalic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-ExtraLight.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-ExtraLightItalic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-Italic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-Light.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-LightItalic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-Medium.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-MediumItalic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-Regular.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-SemiboldItalic.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-Thin.ttf
+        - asset: assets/fonts/montserrat/static/Montserrat-ThinItalic.ttf
+    - family: Pangolin
       fonts:
         - asset: assets/fonts/pangolin/Pangolin-Regular.ttf
     - family: Quicksand
       fonts:
-        - asset: assets/fonts/quicksans/Quicksand-Bold.ttf
-        - asset: assets/fonts/quicksans/Quicksand-Light.ttf
-        - asset: assets/fonts/quicksans/Quicksand-Medium.ttf
-        - asset: assets/fonts/quicksans/Quicksand-Regular.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Bold.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Light.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Medium.ttf
+        - asset: assets/fonts/quicksand/Quicksand-Regular.ttf
     - family: Roboto
       fonts:
         - asset: assets/fonts/roboto/Roboto-Black.ttf
         - asset: assets/fonts/roboto/Roboto-BlackItalic.ttf
-        - asset: assets/fonts/roboto/Roboto-Boldttf
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
         - asset: assets/fonts/roboto/Roboto-BoldItalic.ttf
         - asset: assets/fonts/roboto/Roboto-Italic.ttf
         - asset: assets/fonts/roboto/Roboto-Light.ttf
@@ -133,18 +130,20 @@ flutter:
         - asset: assets/fonts/roboto/Roboto-ThinItalic.ttf
     - family: RobotoCondensed
       fonts:
-        - asset: assets/fonts/roboto/RobotoCondensed-Black.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-BlackItalic.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-Boldttf
-        - asset: assets/fonts/roboto/RobotoCondensed-BoldItalic.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-ExtraBold.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-ExtraBoldItalic.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-ExtraLight.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-ExtraLightItalic.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-Light.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-LightItalic.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-Medium.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-MediumItalic.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-regular.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-Thin.ttf
-        - asset: assets/fonts/roboto/RobotoCondensed-ThinItalic.ttf
+        - asset: assets/fonts/roboto_condensed/RobotoCondensed-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/roboto_condensed/RobotoCondensed-VariableFont_wght.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-Black.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-BlackItalic.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-Bold.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-BoldItalic.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-ExtraBold.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-ExtraBoldItalic.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-ExtraLight.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-ExtraLightItalic.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-Light.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-LightItalic.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-Medium.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-MediumItalic.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-regular.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-Thin.ttf
+        - asset: assets/fonts/roboto_condensed/static/RobotoCondensed-ThinItalic.ttf
