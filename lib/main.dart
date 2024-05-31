@@ -15,9 +15,9 @@ import 'package:volunteersapp/presentation/theme/app_theme.dart';
 import 'package:volunteersapp/presentation/work/work_cubit.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   var host = ContactPoint('127.0.0.1', 9092);
   var session = KafkaSession([host]);
-  WidgetsFlutterBinding();
   await setupLocator();
   await SharedPreferences.getInstance();
   ApiConfig apiConfig = await ApiConfig.load();

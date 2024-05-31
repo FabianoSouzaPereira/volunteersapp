@@ -45,7 +45,7 @@ class AuthenticationDataSourceImpl implements AbastractAuthRepositoryDataSource 
   }
 
   @override
-  Future<ResponseData<SignInWithPasswordResponseModel>> signInWithEmailAndPassword(String email, String password, bool returnSecureToken) async {
+  Future<ResponseData<SignInWithPasswordResponseModel>?> signInWithEmailAndPassword(String email, String password, bool returnSecureToken) async {
     try {
       final response = await dioHttpClient.post(
         "$API_SERVER_AUTH/accounts:signInWithPassword?key=$API_KEY",
@@ -70,7 +70,12 @@ class AuthenticationDataSourceImpl implements AbastractAuthRepositoryDataSource 
       if (kDebugMode) {
         print('Erro ao fazer login: $e');
       }
-      rethrow;
+      //rethrow;
+      return ResponseData<SignInWithPasswordResponseModel>(
+        data: null,
+        statusCode: ResultStatusCode.unknow,
+        success: true,
+      );
     }
   }
 

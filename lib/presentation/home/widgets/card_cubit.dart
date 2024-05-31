@@ -3,4 +3,9 @@ import 'package:volunteersapp/presentation/home/widgets/home_card.dart';
 
 class CardCubit extends Cubit<List<HomeCard>> {
   CardCubit() : super([]);
+
+  void addCard(HomeCard card) {
+    // Atualize o estado adicionando o card à lista atual
+    emit([...state, card]);
+  }
 }
