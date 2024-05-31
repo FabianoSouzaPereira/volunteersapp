@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:volunteersapp/core/router/paths.dart' as paths;
 
 class NotFoundPage extends StatelessWidget {
-  const NotFoundPage({super.key});
+  const NotFoundPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,7 @@ class NotFoundPage extends StatelessWidget {
           children: [
             const Text('A página que você procura não foi encontrada.'),
             GestureDetector(
-              child: const Text("voltar para home",
-                  style: TextStyle(color: Colors.blue, decoration: TextDecoration.underline)),
+              child: const Text("voltar para home", style: TextStyle(color: Colors.blue, decoration: TextDecoration.underline)),
               onTap: () {
                 GoRouter.of(context).go(paths.HomePagePath);
               },

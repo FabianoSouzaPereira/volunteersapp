@@ -7,10 +7,7 @@ import 'package:volunteersapp/presentation/work/work_page_state.dart';
 import 'package:volunteersapp/core/router/paths.dart' as paths;
 
 class WorkPage extends StatelessWidget {
-  WorkPage({
-    super.key,
-    required String title,
-  });
+  WorkPage({Key? key, required String title}) : super(key: key);
 
   final locator = GetIt.instance;
 

@@ -51,42 +51,42 @@ GoRouter router = GoRouter(
     GoRoute(
       path: paths.LoginPagePath,
       name: routes.LoginPageRoute,
-      builder: (context, state) => AuthPage(title: 'Login'),
+      builder: (context, state) => AuthPage(key: UniqueKey(), title: 'Login'),
     ),
     GoRoute(
       path: paths.HomePagePath,
       name: routes.HomePageRoute,
-      builder: (context, state) => const HomePage(title: 'Home'),
+      builder: (context, state) => HomePage(key: UniqueKey(), title: 'Home'),
     ),
     GoRoute(
       path: paths.UserPagePath,
       name: routes.UsersPageRoute,
-      builder: (context, state) => const UserPage(title: 'User'),
+      builder: (context, state) => UserPage(key: UniqueKey(), title: 'User'),
     ),
     GoRoute(
       path: paths.EventsPagePath,
       name: routes.EventsPageRoute,
-      builder: (context, state) => const EventsPage(title: 'Events'),
+      builder: (context, state) => EventsPage(key: UniqueKey(), title: 'Events'),
     ),
     GoRoute(
       path: paths.SettingsPagePath,
       name: routes.SettingsPageRoute,
-      builder: (context, state) => const SettingsPage(title: 'Settings'),
+      builder: (context, state) => SettingsPage(key: UniqueKey(), title: 'Settings'),
     ),
     GoRoute(
       path: paths.NotificationPath,
       name: routes.NotificationPageRoute,
-      builder: (context, state) => const NotificationPage(),
+      builder: (context, state) => NotificationPage(key: UniqueKey()),
     ),
     GoRoute(
       path: paths.WorkPagePath,
       name: routes.WorkPageRoute,
-      builder: (context, state) => WorkPage(title: 'Works'),
+      builder: (context, state) => WorkPage(key: UniqueKey(), title: 'Works'),
     ),
     GoRoute(
       path: paths.NotFoundPath,
       name: routes.NotFoundPageRoute,
-      builder: (context, state) => const NotFoundPage(),
+      builder: (context, state) => NotFoundPage(key: UniqueKey()),
     ),
   ],
 );

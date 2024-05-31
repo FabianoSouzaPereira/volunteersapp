@@ -7,6 +7,7 @@ import 'package:volunteersapp/Locator.dart';
 import 'package:volunteersapp/core/router/paths.dart';
 import 'package:volunteersapp/data/models/authentication/auth_signIn_with_password_model/signin_with_password_Model.dart';
 import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
+import 'package:volunteersapp/presentation/theme/app_theme.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -19,20 +20,19 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _checkTokenAndNavigate();
+    // Future.delayed(Duration(seconds: 8), () {
+    //   _checkTokenAndNavigate();
+    // });
   }
 
   void _checkTokenAndNavigate() async {
-    await setupLocator();
     final repository = GetIt.instance.get<AbstractAuthLocalRepository>();
     Future<SignInWithPasswordResponseModel?> token = repository.readAuthToken();
     bool tokenIsValid = await _checkTokenValidity(token);
 
     if (tokenIsValid) {
-      sleep(Duration(microseconds: 1000));
       GoRouter.of(context).go(HomePagePath);
     } else {
-      sleep(Duration(microseconds: 1000));
       GoRouter.of(context).go(LoginPagePath);
     }
   }
@@ -45,6 +45,45 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    String _backgroundImage = 'assets/images/background_image_brics.jpg';
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          //Center(child: Image.asset('assets/images/family_400x400.jpg', opacity: 1.0,)),
+          Center(
+            child: Text(
+              'Volunteers',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 40,
+                fontStyle: FontStyle.normal,
+                fontFamily: AppTheme.currentTheme.textTheme.displayLarge?.fontFamily,
+                decoration: TextDecoration.none,
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Center(
+            child: Text(
+              'Volunteers',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontStyle: FontStyle.normal,
+                fontFamily: 'Sevillana',
+                decoration: TextDecoration.none,
+              ),
+            ),
+          ),
+        ],
+      ),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(_backgroundImage),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
   }
 }

@@ -9,11 +9,11 @@ import 'package:volunteersapp/presentation/widgets/formtextfield.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({
-    super.key,
+    Key? key,
     required String title,
     isOption1Selected,
     isOption2Selected,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

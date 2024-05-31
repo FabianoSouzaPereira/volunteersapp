@@ -10,10 +10,7 @@ import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
 import 'package:volunteersapp/presentation/theme/app_theme.dart';
 
 class AuthPage extends StatelessWidget {
-  AuthPage({
-    super.key,
-    required String title,
-  });
+  AuthPage({Key? key, required String title}) : super(key: key);
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();

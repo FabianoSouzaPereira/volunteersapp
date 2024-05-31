@@ -56,5 +56,17 @@ void main() {
         ),
       ),
     ));
+
+    // Expectations
+    expect(find.byKey(Key('WidgetTester')), findsOneWidget);
+
+    expect(Provider.of<AuthCubit>(tester.element(find.byType(MyApp))), isA<AuthCubit>());
+    expect(Provider.of<HomeCubit>(tester.element(find.byType(MyApp))), isA<HomeCubit>());
+    // Repeat for other cubits
+
+    final app = find.byType(MyApp).evaluate().single.widget as MyApp;
+    expect(app.apiConfig.apiBaseUrl, 'BASE_URL');
+    expect(app.apiConfig.apiServerName, 'API_SERVER_NAME');
+    // Repeat for other fields of API configuration
   });
 }

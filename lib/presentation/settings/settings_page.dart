@@ -6,7 +6,7 @@ import 'package:volunteersapp/core/router/paths.dart' as paths;
 class SettingsPage extends StatelessWidget {
   final String title;
 
-  const SettingsPage({super.key, required this.title});
+  const SettingsPage({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HomePage extends StatelessWidget {
   final String title;
 
-  const HomePage({super.key, required this.title});
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
