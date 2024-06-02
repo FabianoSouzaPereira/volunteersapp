@@ -58,7 +58,7 @@ Future<void> setupLocator() async {
       ),
     ),
   );
-  getIt.registerSingleton<HomeCubit>(HomeCubit());
+  getIt.registerSingleton<HomeCubit>(HomeCubit(getIt.get()));
   getIt.registerSingleton<CardCubit>(CardCubit());
   getIt.registerSingleton<SettingsCubit>(SettingsCubit());
   getIt.registerSingleton<WorkCubit>(WorkCubit());

@@ -25,20 +25,35 @@ class _IconsGridState extends State<CardsGrid> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: Text(
-          locale.younitytasks(0)[0].toUpperCase() + locale.younitytasks(0).substring(1).toLowerCase(),
-          style: const TextStyle(
-            color: Colors.white,
-            backgroundColor: Colors.transparent,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            shadows: [
-              Shadow(
-                color: Color.fromRGBO(255, 255, 255, .5),
-                offset: Offset(1.0, 1.2),
-                blurRadius: 1.0,
-              ),
-            ],
+        title: ShaderMask(
+          shaderCallback: (Rect bounds) {
+            return LinearGradient(
+              colors: [
+                Color.fromRGBO(230, 230, 230, 1),
+                Color.fromRGBO(195, 181, 181, 1),
+                Color.fromRGBO(155, 155, 155, 1),
+                Color.fromRGBO(195, 181, 181, 1),
+                Color.fromRGBO(255, 255, 255, 1),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ).createShader(bounds);
+          },
+          child: Text(
+            locale.younitytasks(0)[0].toUpperCase() + locale.younitytasks(0).substring(1).toLowerCase(),
+            style: const TextStyle(
+              color: Colors.white,
+              backgroundColor: Colors.transparent,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              shadows: [
+                Shadow(
+                  color: Color.fromRGBO(255, 255, 255, .5),
+                  offset: Offset(1.0, 1.2),
+                  blurRadius: 1.0,
+                ),
+              ],
+            ),
           ),
         ),
         centerTitle: true,
@@ -85,35 +100,43 @@ class _IconsGridState extends State<CardsGrid> {
                           return const LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
-                            colors: [Colors.white, Colors.grey],
-                            stops: [0.0, 1.0],
+                            colors: [
+                              Color.fromRGBO(230, 230, 230, 1),
+                              Color.fromRGBO(195, 181, 181, 1),
+                              Color.fromRGBO(155, 155, 155, 1),
+                              Color.fromRGBO(195, 181, 181, 1),
+                              Color.fromRGBO(255, 255, 255, 1),
+                            ],
+                            stops: [0.0, 0.2, 0.3, 0.7, 1.0],
                           ).createShader(bounds);
                         },
                         child: Column(
                           children: [
                             Icon(
                               widget.cards[index].icon.iconData,
-                              size: 60,
+                              key: UniqueKey(),
+                              size: 75,
                               color: color,
                               shadows: const [
                                 Shadow(
-                                  color: Color.fromRGBO(255, 255, 255, .5),
-                                  offset: Offset(1.0, 1.2),
-                                  blurRadius: 1.0,
+                                  color: Color.fromRGBO(31, 98, 132, 0.8),
+                                  offset: Offset(0.0, 4.0),
+                                  blurRadius: 3.0,
                                 ),
                               ],
+                              semanticLabel: 'Icon task',
                             ),
                             Text(
                               widget.cards.elementAt(index).title,
                               style: const TextStyle(
                                 color: Colors.white,
                                 backgroundColor: Colors.transparent,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
                                 shadows: [
                                   Shadow(
                                     color: Color.fromRGBO(255, 255, 255, .5),
-                                    offset: Offset(1.0, 1.2),
+                                    offset: Offset(0.0, 1.0),
                                     blurRadius: 1.0,
                                   ),
                                 ],

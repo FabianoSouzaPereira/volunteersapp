@@ -1,9 +1,13 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:volunteersapp/presentation/home/home_cubit.dart';
 import 'package:volunteersapp/presentation/home/home_page_state.dart';
 import 'package:volunteersapp/presentation/home/widgets/grid_cards.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:volunteersapp/core/router/paths.dart' as paths;
 
 class HomePage extends StatelessWidget {
   final String title;
@@ -13,13 +17,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locale = AppLocalizations.of(context)!;
+    final GetIt getIt = GetIt.instance;
     var viewPaddingTop = MediaQuery.of(context).viewPadding.top;
     String _backgroundImage = 'assets/images/background_image_black1.jpg';
 
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit(getIt.get()),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
+          // final homeCubit = BlocProvider.of<HomeCubit>(context);
           return SafeArea(
             top: true,
             child: Scaffold(
@@ -35,6 +41,51 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 backgroundColor: Colors.transparent,
+                //   actions: [
+                //     PopupMenuItem<String>(
+                //       value: 'Settings',
+                //       child: ListTile(
+                //         leading: Icon(Icons.settings),
+                //         title: Text('Settings'),
+                //       ),
+                //     ),
+                //     PopupMenuItem<String>(
+                //       value: 'Help',
+                //       child: ListTile(
+                //         leading: Icon(Icons.help),
+                //         title: Text('Help'),
+                //       ),
+                //     ),
+                //     PopupMenuDivider(),
+                //     PopupMenuItem<String>(
+                //       value: 'Logout',
+                //       child: ListTile(
+                //         leading: Icon(Icons.logout),
+                //         title: Text('Logout'),
+                //       ),
+                //     ),
+                //     PopupMenuButton<String>(
+                //       iconColor: Colors.white,
+                //       onSelected: (String choice) async {
+                //         if (choice == 'Settings') {
+                //           // homeCubit.authLocalRepository.deleteAuthToken();
+                //           GoRouter.of(context).go(paths.SettingsPagePath);
+                //         } else if (choice == 'Logout') {
+                //           GoRouter.of(context).go(paths.LoginPagePath);
+                //         } else if (choice == 'Exit') {
+                //           exit(0);
+                //         }
+                //       },
+                //       itemBuilder: (BuildContext context) {
+                //         return ['Exit'].map((String choice) {
+                //           return PopupMenuItem<String>(
+                //             value: choice,
+                //             child: Text(choice),
+                //           );
+                //         }).toList();
+                //       },
+                //     ),
+                //   ],
               ),
               body: Container(
                 decoration: BoxDecoration(

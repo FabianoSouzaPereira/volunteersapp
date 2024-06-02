@@ -1,6 +1,7 @@
 // home_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
 import 'package:volunteersapp/presentation/home/widgets/grid_icon.dart';
 import 'package:volunteersapp/presentation/home/widgets/home_card.dart';
 import 'home_page_state.dart';
@@ -98,7 +99,17 @@ final List<HomeCard> cards = [
 ];
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(HomeInitial(cards));
+  final AbstractAuthLocalRepository authLocalRepository;
+
+  HomeCubit(this.authLocalRepository) : super(HomeInitial(cards));
+
+  Future<void> logout(BuildContext context) async {
+    try {
+      await authLocalRepository.deleteAuthToken();
+    } catch (e) {
+      print('Erro ao fazer logout: $e');
+    }
+  }
 
   void updateIcons(List<IconData> updatedIcons) {
     if (updatedIcons.length != state.cards.length) {

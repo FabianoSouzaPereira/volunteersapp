@@ -154,11 +154,11 @@ class _FormTextFieldState extends State<FormTextField> {
                   contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 15.0),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                    borderSide: BorderSide(color: Colors.white, width: 2.0),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
-                    borderSide: BorderSide(color: Colors.blue, width: 4.0),
+                    borderSide: BorderSide(color: Colors.white, width: 4.0),
                   ),
                 ),
               ),

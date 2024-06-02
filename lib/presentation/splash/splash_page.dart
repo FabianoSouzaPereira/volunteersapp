@@ -20,9 +20,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    // Future.delayed(Duration(seconds: 8), () {
-    //   _checkTokenAndNavigate();
-    // });
+    Future.delayed(Duration(seconds: 8), () {
+      _checkTokenAndNavigate();
+    });
   }
 
   void _checkTokenAndNavigate() async {
@@ -66,7 +66,7 @@ class _SplashPageState extends State<SplashPage> {
           SizedBox(height: 10),
           Center(
             child: Text(
-              'Volunteers',
+              'A Family in God',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,
