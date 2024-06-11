@@ -31,6 +31,9 @@ dependencies:
   html: ^0.15.4
   dio: ^5.4.2+1
   kafkabr: ^1.1.1
+  flutter_esim: ^0.0.4
+  sqflite: ^2.3.3+1
+  path_provider: ^2.0.13
 
 dev_dependencies:
   flutter_test:

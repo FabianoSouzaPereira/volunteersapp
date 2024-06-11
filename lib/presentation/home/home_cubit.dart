@@ -1,7 +1,7 @@
 // home_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
+import 'package:volunteersapp/domain/abstract_repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
 import 'package:volunteersapp/presentation/home/widgets/grid_icon.dart';
 import 'package:volunteersapp/presentation/home/widgets/home_card.dart';
 import 'home_page_state.dart';

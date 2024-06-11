@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:volunteersapp/core/http/dio_http_client.dart'; // Importe sua implementação do DioHttpClient aqui
 import 'package:volunteersapp/data/models/authentication/auth_signIn_with_password_model/signin_with_password_Model.dart';
 import 'package:volunteersapp/data/models/authentication/auth_signup_with_email_password/signup_with_email_and_password.dart';
-import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_repository_datasource.dart';
-import 'package:volunteersapp/domain/repositories/response_data.dart';
+import 'package:volunteersapp/domain/abstract_repositories/abstractions/abstract_auth/abstract_auth_repository_datasource.dart';
+import 'package:volunteersapp/domain/abstract_repositories/response_data.dart';
 import 'package:volunteersapp/core/http/constants.dart';
 import 'package:volunteersapp/presentation/helpers/http_helper.dart';
 

@@ -1,13 +1,13 @@
-import 'package:volunteersapp/domain/entities/address.dart';
+import 'package:volunteersapp/domain/entities/address_entity.dart';
 
-class User {
+class UserEntity {
   final String name;
   final List<int> phones;
-  final List<Address> address;
+  final List<AddressEntity> address;
   final List<String> emails;
   final List<String> socialNetwork;
 
-  User({
+  UserEntity({
     required this.name,
     required this.phones,
     required this.address,

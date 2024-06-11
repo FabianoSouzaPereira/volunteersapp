@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:volunteersapp/core/router/router_config.dart';
+import 'package:volunteersapp/core/services/local_database_service.dart';
 import 'package:volunteersapp/core/utils/apiconfig.dart';
 import 'package:volunteersapp/l10n/l10n.dart';
 import 'package:volunteersapp/locator.dart';
@@ -20,8 +21,9 @@ void main() async {
   var session = KafkaSession([host]);
   await setupLocator();
   await SharedPreferences.getInstance();
-  ApiConfig apiConfig = await ApiConfig.load();
+  await DatabaseService.initDatabase();
 
+  ApiConfig apiConfig = await ApiConfig.load();
   runApp(MyApp(apiConfig: apiConfig));
 }
 

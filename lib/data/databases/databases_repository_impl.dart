@@ -1,7 +1,7 @@
 import 'package:volunteersapp/data/models/cloud_fire_store/projects/databases/database.dart';
 import 'package:volunteersapp/data/models/cloud_fire_store/projects/databases/operations/operation.dart';
-import 'package:volunteersapp/domain/repositories/abstractions/abstract_databases/abstract_databases_repository.dart';
-import 'package:volunteersapp/domain/repositories/response_data.dart';
+import 'package:volunteersapp/domain/abstract_repositories/abstractions/abstract_databases/abstract_databases_repository.dart';
+import 'package:volunteersapp/domain/abstract_repositories/response_data.dart';
 
 class DataBasesRepository implements AbstractDatabasesRepository {
   @override

@@ -1,24 +1,26 @@
 import 'dart:ffi';
 
-class Address {
+class AddressModel {
   final String name;
   final String street;
   final Enum AddressType;
   final String neighborhood;
-  final String State;
-  final String Country;
-  final int Zipcode;
+  final String city;
+  final String state;
+  final String country;
+  final int zipcode;
   final Long? latitude;
   final Long? longitude;
 
-  Address({
+  AddressModel({
     required this.name,
     required this.street,
     required this.AddressType,
     required this.neighborhood,
-    required this.State,
-    required this.Country,
-    required this.Zipcode,
+    required this.city,
+    required this.state,
+    required this.country,
+    required this.zipcode,
     this.latitude,
     this.longitude,
   });

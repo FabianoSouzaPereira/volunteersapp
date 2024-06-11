@@ -8,10 +8,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:volunteersapp/core/http/abstract_http_client.dart';
 import 'package:volunteersapp/core/http/constants.dart';
 import 'package:volunteersapp/core/http/dio_http_client.dart';
-import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
-import 'package:volunteersapp/domain/repositories/abstractions/abstract_auth/abstract_auth_repository_datasource.dart';
+import 'package:volunteersapp/domain/abstract_repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
+import 'package:volunteersapp/domain/abstract_repositories/abstractions/abstract_auth/abstract_auth_repository_datasource.dart';
 import 'package:volunteersapp/data/models/authentication/auth_signIn_with_password_model/signin_with_password_Model.dart';
-import 'package:volunteersapp/domain/repositories/response_data.dart';
+import 'package:volunteersapp/domain/abstract_repositories/response_data.dart';
 import 'package:volunteersapp/presentation/helpers/http_helper.dart';
 
 class DebuggableDioHttpClient extends AbstractHttpClient {
