@@ -54,6 +54,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
+        key: Key('MaterialAppRouter'),
         title: 'Volunteers',
         themeMode: AppTheme.currentThemeMode == AppThemeMode.light ? ThemeMode.light : ThemeMode.dark,
         theme: ThemeData(

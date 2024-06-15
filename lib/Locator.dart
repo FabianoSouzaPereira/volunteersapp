@@ -24,7 +24,7 @@ final getIt = GetIt.instance;
 Future<void> setupLocator() async {
   // Packeges
   final sharedPreferences = await SharedPreferences.getInstance();
-  getIt.registerLazySingleton(() => sharedPreferences);
+  getIt.registerSingleton<SharedPreferences>(sharedPreferences);
 
   // Core
   getIt.registerLazySingleton<Dio>(() => Dio());
@@ -47,6 +47,7 @@ Future<void> setupLocator() async {
       localRepository: AuthLocalRepositoryImpl(getIt.get()),
     ),
   );
+  // DataSource
   getIt.registerLazySingleton<AbastractAuthRepositoryDataSource>(() => AuthenticationDataSourceImpl(dioHttpClient: getIt.get()));
 
   // Repositories

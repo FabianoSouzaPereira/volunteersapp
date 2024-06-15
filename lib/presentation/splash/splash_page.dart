@@ -1,9 +1,9 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:volunteersapp/Locator.dart';
 import 'package:volunteersapp/core/router/paths.dart';
 import 'package:volunteersapp/data/models/authentication/auth_signIn_with_password_model/signin_with_password_Model.dart';
 import 'package:volunteersapp/domain/abstract_repositories/abstractions/abstract_auth/abstract_auth_local_repository.dart';
@@ -17,12 +17,18 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  Timer? _timer;
+
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 8), () {
-      _checkTokenAndNavigate();
-    });
+    _timer = Timer(Duration(seconds: 8), _checkTokenAndNavigate);
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 
   void _checkTokenAndNavigate() async {

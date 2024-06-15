@@ -18,8 +18,8 @@ StructuredQuery _$StructuredQueryFromJson(Map<String, dynamic> json) =>
           .toList(),
       startAt: At.fromJson(json['startAt'] as Map<String, dynamic>),
       endAt: At.fromJson(json['endAt'] as Map<String, dynamic>),
-      offset: json['offset'] as int,
-      limit: json['limit'] as int,
+      offset: (json['offset'] as num).toInt(),
+      limit: (json['limit'] as num).toInt(),
     );
 
 Map<String, dynamic> _$StructuredQueryToJson(StructuredQuery instance) =>

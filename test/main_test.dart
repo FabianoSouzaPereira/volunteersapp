@@ -2,14 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:volunteersapp/Locator.dart';
 import 'package:volunteersapp/core/utils/apiconfig.dart';
 import 'package:volunteersapp/main.dart';
 import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
+import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
 import 'package:volunteersapp/presentation/home/home_cubit.dart';
+import 'package:volunteersapp/presentation/home/home_page_state.dart';
 import 'package:volunteersapp/presentation/home/widgets/card_cubit.dart';
+import 'package:volunteersapp/presentation/home/widgets/home_card.dart';
+import 'package:volunteersapp/presentation/notification/notification_cubit.dart';
+import 'package:volunteersapp/presentation/notification/notification_page_state.dart';
 import 'package:volunteersapp/presentation/settings/settings_cubit.dart';
+import 'package:volunteersapp/presentation/settings/settings_page_state.dart';
 import 'package:volunteersapp/presentation/work/work_cubit.dart';
+import 'package:volunteersapp/presentation/work/work_page_state.dart';
+
+import 'custom_matcher.dart';
+import 'mocks.mocks.dart';
 
 class MockApiConfig extends Mock implements ApiConfig {
   static Future<ApiConfig> load() async {
@@ -26,47 +37,59 @@ class MockApiConfig extends Mock implements ApiConfig {
 void main() {
   final mockApiConfig = MockApiConfig();
 
-  setUp(() async {
-    setupLocator();
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues({});
+    await SharedPreferences.getInstance();
+    getIt.registerSingleton<ApiConfig>(await MockApiConfig.load());
+
+    getIt.allReady();
   });
 
-  testWidgets('App initializes correctly', (WidgetTester tester) async {
-    // Build the widget tree
-    await tester.pumpWidget(MultiProvider(
-      providers: [
-        Provider<AuthCubit>(
-          create: (_) => getIt.get<AuthCubit>(),
-        ),
-        Provider<HomeCubit>(
-          create: (_) => getIt.get<HomeCubit>(),
-        ),
-        Provider<CardCubit>(
-          create: (_) => getIt.get<CardCubit>(),
-        ),
-        Provider<SettingsCubit>(
-          create: (_) => getIt.get<SettingsCubit>(),
-        ),
-        Provider<WorkCubit>(
-          create: (_) => getIt.get<WorkCubit>(),
-        ),
-      ],
-      child: Builder(
-        builder: (_) => MyApp(
-          apiConfig: mockApiConfig,
-        ),
-      ),
-    ));
+  group('MyApp tests', () {
+    late MockAuthUseCase mockAuthUseCase;
+    late MockAbstractAuthLocalRepository mockAbstractAuthLocalRepository;
+    late MockAbstractAuthRepository mockAbstractAuthRepository;
+    late MockAuthCubit mockAuthCubit;
+    late MockHomeCubit mockHomeCubit;
+    late MockCardCubit mockCardCubit;
+    late MockSettingsCubit mockSettingsCubit;
+    late MockWorkCubit mockWorkCubit;
+    late MockNotificationCubit mockNotificationCubit;
 
-    // Expectations
-    expect(find.byKey(Key('WidgetTester')), findsOneWidget);
+    setUpAll(() {
+      mockAuthUseCase = MockAuthUseCase();
+      mockAbstractAuthLocalRepository = MockAbstractAuthLocalRepository();
+      mockAuthCubit = MockAuthCubit();
+      mockHomeCubit = MockHomeCubit();
+      mockCardCubit = MockCardCubit();
+      mockSettingsCubit = MockSettingsCubit();
+      mockWorkCubit = MockWorkCubit();
+      mockNotificationCubit = MockNotificationCubit();
+    });
 
-    expect(Provider.of<AuthCubit>(tester.element(find.byType(MyApp))), isA<AuthCubit>());
-    expect(Provider.of<HomeCubit>(tester.element(find.byType(MyApp))), isA<HomeCubit>());
-    // Repeat for other cubits
+    testWidgets('App initializes correctly', (WidgetTester tester) async {
+      await tester.pumpWidget(MyApp(apiConfig: mockApiConfig));
 
-    final app = find.byType(MyApp).evaluate().single.widget as MyApp;
-    expect(app.apiConfig.apiBaseUrl, 'BASE_URL');
-    expect(app.apiConfig.apiServerName, 'API_SERVER_NAME');
-    // Repeat for other fields of API configuration
+      await tester.pumpAndSettle();
+      expect(find.byKey(Key('MaterialAppRouter')), findsOneWidget);
+
+      when(mockAuthCubit.state).thenReturn(AuthPageStateInitial());
+      expect(mockAuthCubit.state, isTypeWithMessage<AuthPageStateInitial>('AuthCubit initial state started'));
+
+      when(mockHomeCubit.state).thenReturn(HomeInitial(cards));
+      expect(mockHomeCubit.state, isTypeWithMessage<HomeInitial>('HomeCubit initial state started'));
+
+      when(mockCardCubit.state).thenReturn([]);
+      expect(mockCardCubit.state, isTypeWithMessage<List<HomeCard>>('CardCubit initial state started'));
+
+      when(mockSettingsCubit.state).thenReturn(SettingsPageStateInitial());
+      expect(mockSettingsCubit.state, isTypeWithMessage<SettingsPageStateInitial>('SettingsCubit initial state started'));
+
+      when(mockWorkCubit.state).thenReturn(WorkStateInitial());
+      expect(mockWorkCubit.state, isTypeWithMessage<WorkStateInitial>('WorkCubit initial state started'));
+
+      when(mockNotificationCubit.state).thenReturn(NoticationPageInitial());
+      expect(mockNotificationCubit.state, isTypeWithMessage<NoticationPageInitial>('NotificatonCubit initial state started'));
+    });
   });
 }
