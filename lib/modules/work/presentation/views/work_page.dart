@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:volunteersapp/presentation/work/work_cubit.dart';
-import 'package:volunteersapp/presentation/work/work_page_state.dart';
+import 'package:volunteersapp/modules/work/presentation/cubits/work_cubit.dart';
+import 'package:volunteersapp/modules/work/presentation/state/work_page_state.dart';
 import 'package:volunteersapp/core/router/paths.dart' as paths;
 
 class WorkPage extends StatelessWidget {

@@ -11,7 +11,7 @@ import 'package:volunteersapp/modules/home/presentation/state/home_page_state.da
 import 'package:volunteersapp/modules/home/presentation/widgets/home_card.dart';
 import 'package:volunteersapp/modules/notification/presentation/state/notification_page_state.dart';
 import 'package:volunteersapp/modules/settings/presentation/state/settings_page_state.dart';
-import 'package:volunteersapp/presentation/work/work_page_state.dart';
+import 'package:volunteersapp/modules/work/presentation/state/work_page_state.dart';
 
 import 'mock_config/custom_matcher.dart';
 import 'mock_config/mocks.mocks.dart';

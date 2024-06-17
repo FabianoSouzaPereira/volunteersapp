@@ -4,14 +4,14 @@ import 'package:volunteersapp/core/router/router_observer.dart';
 import 'package:volunteersapp/core/router/paths.dart' as paths;
 import 'package:volunteersapp/core/router/routes.dart' as routes;
 import 'package:volunteersapp/modules/auth/presentation/views/auth_page.dart';
-import 'package:volunteersapp/presentation/events/Events_page.dart';
+import 'package:volunteersapp/modules/events/Events_page.dart';
 import 'package:volunteersapp/modules/home/presentation/views/home_page.dart';
 import 'package:volunteersapp/modules/notFound/page_notfound.dart';
 import 'package:volunteersapp/modules/notification/presentation/views/notification_page.dart';
 import 'package:volunteersapp/modules/settings/presentation/views/settings_page.dart';
 import 'package:volunteersapp/modules/splash/splash_page.dart';
 import 'package:volunteersapp/modules/user/presentation/views/user_page.dart';
-import 'package:volunteersapp/presentation/work/work_page.dart';
+import 'package:volunteersapp/modules/work/presentation/views/work_page.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 

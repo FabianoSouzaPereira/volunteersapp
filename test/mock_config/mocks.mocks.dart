@@ -56,8 +56,10 @@ import 'package:volunteersapp/modules/settings/presentation/cubits/settings_cubi
     as _i35;
 import 'package:volunteersapp/modules/settings/presentation/state/settings_page_state.dart'
     as _i16;
-import 'package:volunteersapp/presentation/work/work_cubit.dart' as _i36;
-import 'package:volunteersapp/presentation/work/work_page_state.dart' as _i17;
+import 'package:volunteersapp/modules/work/presentation/cubits/work_cubit.dart'
+    as _i36;
+import 'package:volunteersapp/modules/work/presentation/state/work_page_state.dart'
+    as _i17;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values

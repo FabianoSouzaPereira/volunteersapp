@@ -12,8 +12,8 @@ import 'package:volunteersapp/modules/home/presentation/cubits/home_cubit.dart';
 import 'package:volunteersapp/modules/home/presentation/widgets/card_cubit.dart';
 import 'package:volunteersapp/modules/settings/presentation/cubits/settings_cubit.dart';
 import 'package:kafkabr/kafka.dart';
-import 'package:volunteersapp/presentation/theme/app_theme.dart';
-import 'package:volunteersapp/presentation/work/work_cubit.dart';
+import 'package:volunteersapp/modules/work/presentation/cubits/work_cubit.dart';
+import 'package:volunteersapp/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

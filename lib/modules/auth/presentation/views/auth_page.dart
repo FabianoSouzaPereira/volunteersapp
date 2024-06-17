@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:volunteersapp/core/router/routes.dart';
 import 'package:volunteersapp/modules/auth/presentation/cubits/auth_cubit.dart';
 import 'package:volunteersapp/modules/auth/presentation/state/auth_page_state.dart';
-import 'package:volunteersapp/presentation/theme/app_theme.dart';
+import 'package:volunteersapp/theme/app_theme.dart';
 
 class AuthPage extends StatelessWidget {
   AuthPage({Key? key, required String title}) : super(key: key);

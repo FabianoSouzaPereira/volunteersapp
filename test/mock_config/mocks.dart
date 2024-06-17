@@ -13,8 +13,8 @@ import 'package:volunteersapp/modules/home/presentation/widgets/card_cubit.dart'
 import 'package:volunteersapp/modules/notification/presentation/cubits/notification_cubit.dart';
 import 'package:volunteersapp/modules/settings/presentation/cubits/settings_cubit.dart';
 import 'package:volunteersapp/modules/home/presentation/state/home_page_state.dart';
-import 'package:volunteersapp/presentation/work/work_cubit.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:volunteersapp/modules/work/presentation/cubits/work_cubit.dart';
 
 @GenerateMocks([
   SharedPreferences,
