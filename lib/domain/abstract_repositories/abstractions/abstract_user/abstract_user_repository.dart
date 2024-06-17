@@ -1,5 +1,5 @@
 import 'package:volunteersapp/data/models/user/user_model.dart';
-import 'package:volunteersapp/domain/abstract_repositories/response_data.dart';
+import 'package:volunteersapp/core/http/response_data.dart';
 
 abstract class AbstractUserRepository {
   Future<ResponseData<UserModel>> insert();

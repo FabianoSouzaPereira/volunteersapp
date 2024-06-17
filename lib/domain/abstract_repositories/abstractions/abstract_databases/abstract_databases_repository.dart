@@ -1,6 +1,6 @@
-import 'package:volunteersapp/data/models/cloud_fire_store/projects/databases/database.dart';
-import 'package:volunteersapp/data/models/cloud_fire_store/projects/databases/operations/operation.dart';
-import 'package:volunteersapp/domain/abstract_repositories/response_data.dart';
+import 'package:volunteersapp/modules/auth/data/models/cloud_fire_store/projects/databases/database.dart';
+import 'package:volunteersapp/modules/auth/data/models/cloud_fire_store/projects/databases/operations/operation.dart';
+import 'package:volunteersapp/core/http/response_data.dart';
 
 abstract class AbstractDatabasesRepository {
   Future<ResponseData<Operation>> create();

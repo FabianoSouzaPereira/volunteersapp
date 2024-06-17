@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:volunteersapp/Locator.dart';
 import 'package:volunteersapp/core/utils/apiconfig.dart';
 import 'package:volunteersapp/main.dart';
-import 'package:volunteersapp/presentation/auth/auth_cubit.dart';
-import 'package:volunteersapp/presentation/auth/auth_page_state.dart';
-import 'package:volunteersapp/presentation/home/home_cubit.dart';
-import 'package:volunteersapp/presentation/home/home_page_state.dart';
-import 'package:volunteersapp/presentation/home/widgets/card_cubit.dart';
-import 'package:volunteersapp/presentation/home/widgets/home_card.dart';
-import 'package:volunteersapp/presentation/notification/notification_cubit.dart';
-import 'package:volunteersapp/presentation/notification/notification_page_state.dart';
-import 'package:volunteersapp/presentation/settings/settings_cubit.dart';
-import 'package:volunteersapp/presentation/settings/settings_page_state.dart';
-import 'package:volunteersapp/presentation/work/work_cubit.dart';
+import 'package:volunteersapp/modules/auth/presentation/state/auth_page_state.dart';
+import 'package:volunteersapp/modules/home/presentation/cubits/home_cubit.dart';
+import 'package:volunteersapp/modules/home/presentation/state/home_page_state.dart';
+import 'package:volunteersapp/modules/home/presentation/widgets/home_card.dart';
+import 'package:volunteersapp/modules/notification/presentation/state/notification_page_state.dart';
+import 'package:volunteersapp/modules/settings/presentation/state/settings_page_state.dart';
 import 'package:volunteersapp/presentation/work/work_page_state.dart';
 
-import 'custom_matcher.dart';
-import 'mocks.mocks.dart';
+import 'mock_config/custom_matcher.dart';
+import 'mock_config/mocks.mocks.dart';
 
 class MockApiConfig extends Mock implements ApiConfig {
   static Future<ApiConfig> load() async {
