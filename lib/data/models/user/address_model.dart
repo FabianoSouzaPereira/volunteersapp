@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class AddressModel {
   final String name;
   final String street;
@@ -9,8 +7,8 @@ class AddressModel {
   final String state;
   final String country;
   final int zipcode;
-  final Long? latitude;
-  final Long? longitude;
+  final int? latitude;
+  final int? longitude;
 
   AddressModel({
     required this.name,
