@@ -8,11 +8,13 @@ part of 'security_model.dart';
 
 SecurityModel _$SecurityModelFromJson(Map<String, dynamic> json) =>
     SecurityModel(
-      twoFactorAuth: json['twoFactorAuth'] as bool,
-      loginAlerts: json['loginAlerts'] as bool,
-      allowedDevices: (json['allowedDevices'] as List<dynamic>)
-          .map((e) => AllowedDeviceModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      twoFactorAuth: json['twoFactorAuth'] as bool? ?? false,
+      loginAlerts: json['loginAlerts'] as bool? ?? false,
+      allowedDevices: (json['allowedDevices'] as List<dynamic>?)
+              ?.map(
+                  (e) => AllowedDeviceModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const <AllowedDeviceModel>[],
     );
 
 Map<String, dynamic> _$SecurityModelToJson(SecurityModel instance) =>

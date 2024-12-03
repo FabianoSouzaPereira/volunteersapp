@@ -9,9 +9,12 @@ part of 'account_settings_model.dart';
 AccountSettingsModel _$AccountSettingsModelFromJson(
         Map<String, dynamic> json) =>
     AccountSettingsModel(
-      privacy: PrivacyModel.fromJson(json['privacy'] as Map<String, dynamic>),
-      security:
-          SecurityModel.fromJson(json['security'] as Map<String, dynamic>),
+      privacy: json['privacy'] == null
+          ? const PrivacyModel()
+          : PrivacyModel.fromJson(json['privacy'] as Map<String, dynamic>),
+      security: json['security'] == null
+          ? const SecurityModel()
+          : SecurityModel.fromJson(json['security'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AccountSettingsModelToJson(

@@ -8,9 +8,9 @@ part of 'notification_model.dart';
 
 NotificationsModel _$NotificationsModelFromJson(Map<String, dynamic> json) =>
     NotificationsModel(
-      email: json['email'] as bool,
-      sms: json['sms'] as bool,
-      push: json['push'] as bool,
+      email: json['email'] as bool? ?? false,
+      sms: json['sms'] as bool? ?? false,
+      push: json['push'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$NotificationsModelToJson(NotificationsModel instance) =>

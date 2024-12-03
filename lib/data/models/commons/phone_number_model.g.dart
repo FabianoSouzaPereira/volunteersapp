@@ -8,8 +8,8 @@ part of 'phone_number_model.dart';
 
 PhoneNumberModel _$PhoneNumberModelFromJson(Map<String, dynamic> json) =>
     PhoneNumberModel(
-      type: json['type'] as String,
-      number: json['number'] as String,
+      type: json['type'] as String? ?? '',
+      number: json['number'] as String? ?? '',
     );
 
 Map<String, dynamic> _$PhoneNumberModelToJson(PhoneNumberModel instance) =>

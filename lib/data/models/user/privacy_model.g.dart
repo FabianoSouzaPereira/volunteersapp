@@ -7,9 +7,9 @@ part of 'privacy_model.dart';
 // **************************************************************************
 
 PrivacyModel _$PrivacyModelFromJson(Map<String, dynamic> json) => PrivacyModel(
-      profileVisibility: json['profileVisibility'] as String,
-      lastSeen: json['lastSeen'] as String,
-      readReceipts: json['readReceipts'] as bool,
+      profileVisibility: json['profileVisibility'] as String? ?? '',
+      lastSeen: json['lastSeen'] as String? ?? '',
+      readReceipts: json['readReceipts'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$PrivacyModelToJson(PrivacyModel instance) =>
